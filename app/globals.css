@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+}
+
+/* Orbiting Circles Animation (from orbiting-circles.tsx) */
+@layer components {
+  .animate-orbit {
+    animation: orbit var(--duration, 20s) linear infinite;
+    animation-delay: var(--delay, 0s);
+    transform-origin: center;
+    will-change: transform;
+  }
+  .animate-orbit:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes orbit {
+  0% {
+    transform:
+      rotate(0deg)
+      translateY(calc(-1 * var(--radius, 120px)))
+      rotate(0deg);
+  }
+  100% {
+    transform:
+      rotate(360deg)
+      translateY(calc(-1 * var(--radius, 120px)))
+      rotate(-360deg);
+  }
+}
+
+@layer base {
+  :root {
+    background-color: none;
+    --background: 250 246 247;
+    --foreground: 0 0% 3.9%;
+    --card: 250 246 247;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 250 246 247;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+  .theme {
+    --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* Remove any yellow background color, use only the intended background */
+    @apply bg-background text-foreground font-[var(--font-space-grotesk)];
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glow-effect {
+    box-shadow: 0 0 20px rgba(0, 255, 176, 0.3), 0 0 40px rgba(0, 255, 176, 0.1);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(0, 255, 176, 0.3);
+  }
+
+  .gradient-green {
+    background: linear-gradient(135deg, #00FFB0, #009966);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #00FFB0, #009966);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .orbit-path {
+    border: 1px solid rgba(0, 255, 176, 0.2);
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateY(var(--radius)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateY(var(--radius)) rotate(-360deg);
+  }
+}
+
+.animate-orbit {
+  animation: orbit var(--duration, 20s) linear infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 176, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(0, 255, 176, 0.5); }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
