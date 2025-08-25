@@ -1,77 +1,95 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
-const images = [
-  
-    "/cpu-fan1.png",
-    "/cpu-fan2.png",
-    "/cpu-fan3.png",
-    "/cpu-fan4.png",
-    "/graphic-card1.png",
-    "/graphic-card2.png",
-    "/graphic-card3.png",
-    "/graphic-card6.png",
-    "/graphic-card5.png",
-    "/tft-1.png",
-    "/tft-2.png",
-    "/tft-3.png",
-    "/tft-4.png",
-   
-    
-  
-];
+type MarqueeImage = {
+  src: string;
+  name: string;
+  color?: string;
+};
 
-export default function MarqueeSlider() {
+type MarqueeSliderProps = {
+  images: MarqueeImage[];
+  direction?: "left" | "right";
+  speed?: number;
+  className?: string;
+  imageSize?: number;
+  svgColor?: string;
+};
+
+function isSvg(src: string) {
+  return src.toLowerCase().endsWith(".svg");
+}
+
+export default function MarqueeSlider({
+  images,
+  direction = "left",
+  speed = 18,
+  className = "",
+  imageSize = 100,
+  svgColor,
+}: MarqueeSliderProps) {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
-  // Optional: Pause on hover
-  useEffect(() => {
-    const marquee = marqueeRef.current;
-    if (!marquee) return;
-    const handleMouseEnter = () => {
-      marquee.style.animationPlayState = "paused";
-    };
-    const handleMouseLeave = () => {
-      marquee.style.animationPlayState = "running";
-    };
-    marquee.addEventListener("mouseenter", handleMouseEnter);
-    marquee.addEventListener("mouseleave", handleMouseLeave);
-    return () => {
-      marquee.removeEventListener("mouseenter", handleMouseEnter);
-      marquee.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
+
+  // Animation direction
+  const animationName = direction === "left" ? "marquee-left" : "marquee-right";
+
+  // Repeat images twice for seamless loop
+  const repeatedImages = [...images, ...images];
 
   return (
-      <section className="w-full overflow-hidden py-8 bg-emerald-50">
+    <section className={`w-full overflow-hidden py-8 bg-emerald-50 ${className}`}>
       <div className="relative w-full">
         <div
           ref={marqueeRef}
           className="flex gap-12 animate-marquee will-change-transform"
           style={{
-            animation: "marquee 18s linear infinite",
+            animation: `${animationName} ${speed}s linear infinite`,
+            minWidth: "200%",
           }}
         >
-          {/* Repeat images twice for seamless loop */}
-          {[...images, ...images].map((src, idx) => (
-            <div
-              key={idx}
-              className="flex-shrink-0 flex items-center justify-center"
-              style={{ width: 100, height: 100 }}
-            >
-              <img
-                src={src}
-                alt=""
-                className="w-full  h-full object-cover"
-                draggable={false}
-              />
-            </div>
-          ))}
+          {repeatedImages.map((img, idx) => {
+
+            const isSvgImg = isSvg(img.src);
+
+            const color = img.color || svgColor || "#059669";
+
+            const emerald600Filter =
+              "invert(41%) sepia(91%) saturate(484%) hue-rotate(120deg) brightness(92%) contrast(91%)";
+
+            const filterStyle =
+              isSvgImg && color
+                ? emerald600Filter
+                : undefined;
+
+            return (
+              <div
+                key={`${img.src}-${idx}`}
+                className="flex-shrink-0 flex flex-col items-center justify-center"
+                style={{ width: imageSize, height: imageSize + 32 }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.name}
+                  className={`w-full h-[70px] object-contain ${isSvgImg ? "svg-colorize" : ""}`}
+                  draggable={false}
+                  style={{
+                    maxHeight: imageSize,
+                    maxWidth: imageSize,
+                    filter: isSvgImg ? filterStyle : undefined,
+                  }}
+                />
+                <span className="mt-2 text-sm text-gray-700 text-center w-full truncate" title={img.name}>
+                  {img.name}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
-      {/* Marquee keyframes */}
+      {/* Marquee keyframes and SVG colorize helper */}
       <style jsx>{`
-        @keyframes marquee {
+        @keyframes marquee-left {
           0% {
             transform: translateX(0%);
           }
@@ -79,8 +97,18 @@ export default function MarqueeSlider() {
             transform: translateX(-50%);
           }
         }
-        .animate-marquee {
-          min-width: 200%;
+        @keyframes marquee-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0%);
+          }
+        }
+      
+        .svg-colorize {
+          /* fallback filter for emerald-600, override with style if needed */
+          filter: invert(41%) sepia(91%) saturate(484%) hue-rotate(120deg) brightness(92%) contrast(91%);
         }
       `}</style>
     </section>

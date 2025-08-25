@@ -1,16 +1,16 @@
 'use client'
 import React, { useState, useEffect } from "react";
-import { Mail, Phone } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 // Add your contact info here
 const CONTACT_PHONE = "+91-90909090";
-const CONTACT_EMAIL = "support@bmcomputes.com";
+const CONTACT_EMAIL = "support@bmcomputers.com";
 
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Location", href: "/location" },
+  { name: "Product", href: "/product" },
+  { name: "Gamming Hub", href: "/gamming-hub" },
 ];
 
 function getCurrentPath() {
@@ -53,41 +53,55 @@ export default function Navbar() {
   return (
     <>
       {/* Top Ribbon for contact info */}
-      <div className="w-full fixed top-0 left-0 z-[60] bg-emerald-600 text-white text-sm mb-6 py-1 px-8 flex items-center justify-end gap-4">
-        <span className="flex items-end gap-1">
-          {/* Mail Icon */}
-          <span className="inline-block mr-1">
-            <Mail className="w-4 h-4" />
+      <div className="w-full  fixed top-0 left-0 z-[60] bg-emerald-600 text-white text-sm mb-6 py-1 px-8 flex items-center justify-between gap-4">
+
+        {/* Address Section - Left Side */}
+        <div className="flex items-center gap-2">
+          {/* Address Icon (using a simple SVG for location) */}
+          <span className="inline-block mr-1" aria-label="Address">
+            <MapPin className="w-4 h-4 text-white" />
           </span>
-          <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline">{CONTACT_EMAIL}</a>
-        </span>
-        <span className="hidden sm:inline-block">|</span>
-        <span className="flex items-center gap-1">
-          {/* Phone Icon */}
-          <span className="inline-block mr-1">
-            <Phone className="w-4 h-4" />
+          <span>
+            Computer Market, Sanjay Place, Agra
           </span>
-          <a href={`tel:${CONTACT_PHONE.replace(/[^+\d]/g, "")}`} className="hover:underline">{CONTACT_PHONE}</a>
-        </span>
-          </div>
+        </div>
+        {/* Contact Info - Right Side */}
+        <div className="flex items-center gap-4">
+          <span className="flex items-end gap-1">
+            {/* Mail Icon */}
+            <span className="inline-block mr-1">
+              <Mail className="w-4 h-4" />
+            </span>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline">{CONTACT_EMAIL}</a>
+          </span>
+          <span className="hidden sm:inline-block">|</span>
+          <span className="flex items-center gap-1">
+            {/* Phone Icon */}
+            <span className="inline-block mr-1">
+              <Phone className="w-4 h-4" />
+            </span>
+            <a href={`tel:${CONTACT_PHONE.replace(/[^+\d]/g, "")}`} className="hover:underline">{CONTACT_PHONE}</a>
+          </span>
+        </div>
+      </div>
           
       <nav
         className={`w-full fixed top-6 left-0 z-50 shadow-md transition-colors duration-300 bg-gradient-to-r  from-emerald-50 via-white to-emerald-50`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex  items-center justify-between h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
               <span className="text-xl font-bold text-emerald-500">BM COMPUTER</span>
             </div>
             {/* Desktop Nav - Centered */}
             <div className="hidden md:flex flex-1 justify-center">
-              <div className="flex items-center space-x-8">
+              <div className="flex items-center  space-x-8">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
-                    className={`text-gray-700 hover:text-emerald-600 px-3 py-1 rounded transition font-medium ${
+                    className={`text-gray-700 hover:text-emerald-600 px-3   py-1 rounded transition font-medium ${
                       isActive(link.href)
                         ? "bg-emerald-50 rounded-full  border border-emerald-600 text-emerald-700 font-bold"
                         : ""

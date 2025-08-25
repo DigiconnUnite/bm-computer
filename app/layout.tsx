@@ -11,7 +11,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'BM Computes - Powering the Future of Computing',
+  title: 'BM computers - Powering the Future of Computing',
   description: 'Experience modern computing like never before. Explore futuristic systems, tailored setups, and next-gen solutions.',
   keywords: 'computers, technology, custom PC, hardware, computing solutions',
 };

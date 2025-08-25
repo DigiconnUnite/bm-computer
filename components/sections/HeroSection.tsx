@@ -83,7 +83,7 @@ export default function HeroSection() {
               </h1>
               {/* Description */}
               <p className="text-l text-gray-700 dark:text-gray-300 text-center max-w-2xl">
-                At BM Computes, we provide a complete range of computing solutions—from powerful PCs and monitors to graphic cards, storage, and accessories. Whether you’re a gamer, creator, or professional, our store brings you the latest technology in one place, built for performance and reliability.
+                At BM computers, we provide a complete range of computing solutions—from powerful PCs and monitors to graphic cards, storage, and accessories. Whether you’re a gamer, creator, or professional, our store brings you the latest technology in one place, built for performance and reliability.
               </p>
               {/* Call to Action Button */}
               <div className="flex justify-center">
