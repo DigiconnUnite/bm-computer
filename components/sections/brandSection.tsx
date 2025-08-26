@@ -25,13 +25,13 @@ const brands = [
 
 export default function BrandSection() {
   return (
-    <section className="py-16 bg-emerald-50">
-      <div className="max-w-4xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-emerald-600 mb-10">
+    <section className="py-16 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 text-center relative z-20">
+        <h2 className="text-3xl md:text-4xl font-black text-emerald-600 mb-10 drop-shadow-lg  inline-block px-6 py-2 rounded-2xl">
           Trusted by Leading Brands
         </h2>
       </div>
-      <div className="w-full mx-auto">
+      <div className="w-full mx-auto relative z-10">
         <MarqueeSlider
           images={brands.map((b) => ({ src: b.image, name: b.name }))}
           direction="left"

@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
 type MarqueeImage = {
   src: string;
@@ -30,6 +30,23 @@ export default function MarqueeSlider({
 }: MarqueeSliderProps) {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
+  // // Pause on hover
+  // useEffect(() => {
+  //   const marquee = marqueeRef.current;
+  //   if (!marquee) return;
+  //   const handleMouseEnter = () => {
+  //     marquee.style.animationPlayState = "paused";
+  //   };
+  //   const handleMouseLeave = () => {
+  //     marquee.style.animationPlayState = "running";
+  //   };
+  //   marquee.addEventListener("mouseenter", handleMouseEnter);
+  //   marquee.addEventListener("mouseleave", handleMouseLeave);
+  //   return () => {
+  //     marquee.removeEventListener("mouseenter", handleMouseEnter);
+  //     marquee.removeEventListener("mouseleave", handleMouseLeave);
+  //   };
+  // }, []);
 
   // Animation direction
   const animationName = direction === "left" ? "marquee-left" : "marquee-right";
@@ -38,7 +55,7 @@ export default function MarqueeSlider({
   const repeatedImages = [...images, ...images];
 
   return (
-    <section className={`w-full overflow-hidden py-8 bg-emerald-50 ${className}`}>
+    <section className={`w-full overflow-hidden py-8  ${className}`}>
       <div className="relative w-full">
         <div
           ref={marqueeRef}
@@ -65,7 +82,8 @@ export default function MarqueeSlider({
             return (
               <div
                 key={`${img.src}-${idx}`}
-                className="flex-shrink-0 flex flex-col items-center justify-center"
+                className="flex-shrink-0 flex flex-col items-center bg-white px-5 rounded-xl justify-center"
+
                 style={{ width: imageSize, height: imageSize + 32 }}
               >
                 <img
@@ -105,7 +123,7 @@ export default function MarqueeSlider({
             transform: translateX(0%);
           }
         }
-      
+        /* Optional: If you want to allow easy color override via CSS variable */
         .svg-colorize {
           /* fallback filter for emerald-600, override with style if needed */
           filter: invert(41%) sepia(91%) saturate(484%) hue-rotate(120deg) brightness(92%) contrast(91%);

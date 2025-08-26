@@ -44,7 +44,7 @@ const features = [
 
 export function WhyChooseSection() {
   return (
-    <section className="relative py-20 bg-gradient-to-br from-emerald-50 via-white to-emerald-100 overflow-hidden">
+    <section className="relative py-20  overflow-hidden">
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2

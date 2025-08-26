@@ -35,7 +35,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20 bg-gradient-to-tr from-emerald-50 via-white to-emerald-100 overflow-hidden"
+      className="relative py-20  overflow-hidden"
     >
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">

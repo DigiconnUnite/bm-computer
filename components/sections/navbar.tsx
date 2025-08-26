@@ -9,7 +9,7 @@ const CONTACT_EMAIL = "support@bmcomputers.com";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
-  { name: "Product", href: "/product" },
+  { name: "Products", href: "/products" },
   { name: "Gamming Hub", href: "/gamming-hub" },
 ];
 

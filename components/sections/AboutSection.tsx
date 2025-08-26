@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function AboutSection() {
   return (
-    <section className="relative py-24 px-4 sm:px-8 lg:px-16 bg-gradient-to-br from-emerald-50 via-white to-emerald-50 overflow-hidden">
+    <section className="relative py-24 px-4 sm:px-8 lg:px-16 50 overflow-hidden">
 
       <div className="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-24">
         {/* Content Section */}
