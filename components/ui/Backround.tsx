@@ -1,131 +1,83 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
 import React from "react";
-
-const dotPatterns = {
-  light: {
-    default: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23d4d4d4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
-    hover: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%236366f1' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
-  },
-  dark: {
-    default: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%23404040' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
-    hover: `url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3E%3Ccircle fill='%238183f4' id='pattern-circle' cx='10' cy='10' r='2.5'%3E%3C/circle%3E%3C/svg%3E")`,
-  },
-};
 
 const Background: React.FC<{
   className?: string;
   containerClassName?: string;
   children?: React.ReactNode;
 }> = ({ className, containerClassName, children }) => {
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
-
-  function handleMouseMove({
-    currentTarget,
-    clientX,
-    clientY,
-  }: React.MouseEvent<HTMLDivElement>) {
-    if (!currentTarget) return;
-    let { left, top } = currentTarget.getBoundingClientRect();
-
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "fixed inset-0 z-0 pointer-events-none group  flex w-full h-full items-center justify-center  bg-emerald-50  dark:bg-black",
+        "fixed inset-0 z-0 pointer-events-none flex w-full h-full items-center justify-center overflow-hidden",
         containerClassName
       )}
-      onMouseMove={handleMouseMove}
+      style={{
+        backgroundImage: `linear-gradient(120deg, rgba(16, 185, 129, 0.12) 0%, rgba(34, 211, 238, 0.10) 100%), url(card-bg.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundBlendMode: 'overlay',
+      }}
     >
-      {/* Dot pattern background */}
-      <div
-        className="pointer-events-none absolute inset-0 dark:hidden"
-        style={{
-          backgroundImage: dotPatterns.light.default,
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0 hidden dark:block"
-        style={{
-          backgroundImage: dotPatterns.dark.default,
-        }}
-      />
-      {/* Hover dot pattern */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 opacity-0 transition duration-300 group-hover:opacity-100 dark:hidden"
-        style={{
-          backgroundImage: dotPatterns.light.hover,
-          WebkitMaskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-          maskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-        }}
-      />
-      <motion.div
-        className="pointer-events-none absolute inset-0 hidden opacity-0 transition duration-300 group-hover:opacity-100 dark:block"
-        style={{
-          backgroundImage: dotPatterns.dark.hover,
-          WebkitMaskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-          maskImage: useMotionTemplate`
-            radial-gradient(
-              200px circle at ${mouseX}px ${mouseY}px,
-              black 0%,
-              transparent 100%
-            )
-          `,
-        }}
-      />
-
-      {/* Modern grid overlay */}
-      <div className="absolute inset-0 grid grid-cols-12 grid-rows-6 opacity-10">
-        {Array.from({ length: 12 * 6 }).map((_, i) => (
-          <div
-            key={i}
-            className="border border-white/30 border-dashed"
-            style={{ borderWidth: "0 1px 1px 0" }}
-          />
-        ))}
-      </div>
-
-      {/* Vignette shadow effect */}
-      <div className="absolute inset-0 pointer-events-none z-10">
-        <div
-          className="w-full h-full"
+      {/* Futuristic animated neon grid */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img
+          src="/neon-grid.png"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-full object-cover opacity-25 animate-pulse-slow"
           style={{
-            background:
-              "radial-gradient(ellipse at center, rgba(0,0,0,0) 60%, rgba(0,0,0,0.10) 100%)",
+            mixBlendMode: "screen",
+            filter: "blur(2.5px) brightness(1.25)"
           }}
         />
       </div>
+      {/* Animated glowing orbs */}
+      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-emerald-400 via-cyan-300 to-transparent opacity-60 blur-3xl animate-float-slow shadow-[0_0_120px_60px_rgba(16,185,129,0.25)]" />
+      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-cyan-400 via-emerald-200 to-transparent opacity-50 blur-3xl animate-float-reverse shadow-[0_0_120px_60px_rgba(34,211,238,0.18)]" />
+      {/* Extra glowing elements for more depth */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] rounded-full bg-gradient-radial from-emerald-300/40 via-cyan-200/30 to-transparent opacity-40 blur-2xl animate-float-mid pointer-events-none" />
+      <div className="absolute bottom-10 left-1/4 w-[180px] h-[180px] rounded-full bg-gradient-to-br from-cyan-300/40 via-emerald-200/30 to-transparent opacity-30 blur-2xl animate-float-slow pointer-events-none" />
+      <div className="absolute top-10 right-1/4 w-[140px] h-[140px] rounded-full bg-gradient-to-tr from-emerald-400/40 via-cyan-200/30 to-transparent opacity-25 blur-2xl animate-float-reverse pointer-events-none" />
 
-      {/* Modern gradient blobs */}
-      <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-gradient-to-br from-emerald-200 via-cyan-100 to-white rounded-full opacity-40 blur-3xl" />
-      <div className="absolute -bottom-40 -right-40 w-[600px] h-[600px] bg-gradient-to-tr from-emerald-100 via-white to-cyan-200 rounded-full opacity-30 blur-3xl" />
-      <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-gradient-to-br from-white via-emerald-50 to-cyan-100 rounded-full opacity-20 blur-2xl" />
 
+      {/* Children content */}
       <div className={cn("relative z-20", className)}>{children}</div>
+      {/* Custom keyframes for floating, pulsing, and sparkles */}
+      <style jsx global>{`
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(30px) scale(1.05); }
+        }
+        @keyframes float-reverse {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(-30px) scale(1.07); }
+        }
+        @keyframes float-mid {
+          0%, 100% { transform: translateY(0px) scale(1); }
+          50% { transform: translateY(15px) scale(1.03); }
+        }
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.18; }
+          50% { opacity: 0.28; }
+        }
+        @keyframes sparkle {
+          0% { opacity: 0.1; transform: scale(0.8);}
+          50% { opacity: 0.5; transform: scale(1.2);}
+          100% { opacity: 0.1; transform: scale(0.8);}
+        }
+        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+        .animate-float-reverse { animation: float-reverse 10s ease-in-out infinite; }
+        .animate-float-mid { animation: float-mid 7s ease-in-out infinite; }
+        .animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }
+        .animate-sparkle { animation: sparkle 5s ease-in-out infinite; }
+        .bg-gradient-radial {
+          background-image: radial-gradient(circle at 50% 50%, var(--tw-gradient-stops));
+        }
+      `}</style>
     </div>
   );
 };
