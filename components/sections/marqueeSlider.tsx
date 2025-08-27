@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 
 type MarqueeImage = {
   src: string;
@@ -30,32 +30,19 @@ export default function MarqueeSlider({
 }: MarqueeSliderProps) {
   const marqueeRef = useRef<HTMLDivElement>(null);
 
-  // // Pause on hover
-  // useEffect(() => {
-  //   const marquee = marqueeRef.current;
-  //   if (!marquee) return;
-  //   const handleMouseEnter = () => {
-  //     marquee.style.animationPlayState = "paused";
-  //   };
-  //   const handleMouseLeave = () => {
-  //     marquee.style.animationPlayState = "running";
-  //   };
-  //   marquee.addEventListener("mouseenter", handleMouseEnter);
-  //   marquee.addEventListener("mouseleave", handleMouseLeave);
-  //   return () => {
-  //     marquee.removeEventListener("mouseenter", handleMouseEnter);
-  //     marquee.removeEventListener("mouseleave", handleMouseLeave);
-  //   };
-  // }, []);
-
   // Animation direction
   const animationName = direction === "left" ? "marquee-left" : "marquee-right";
 
   // Repeat images twice for seamless loop
   const repeatedImages = [...images, ...images];
 
+  // CSS filter for lime-400 (#a3e635) for black SVGs
+  // This filter is tuned to make black SVGs appear lime-400
+  const lime400Filter =
+    "invert(81%) sepia(97%) saturate(749%) hue-rotate(24deg) brightness(97%) contrast(92%)";
+
   return (
-    <section className={`w-full overflow-hidden py-8  ${className}`}>
+    <section className={`w-full overflow-hidden py-8  `}>
       <div className="relative w-full">
         <div
           ref={marqueeRef}
@@ -66,24 +53,17 @@ export default function MarqueeSlider({
           }}
         >
           {repeatedImages.map((img, idx) => {
-
             const isSvgImg = isSvg(img.src);
 
-            const color = img.color || svgColor || "#059669";
-
-            const emerald600Filter =
-              "invert(41%) sepia(91%) saturate(484%) hue-rotate(120deg) brightness(92%) contrast(91%)";
-
-            const filterStyle =
-              isSvgImg && color
-                ? emerald600Filter
-                : undefined;
+            // Always use lime-400 filter for SVGs to ensure black SVGs become lime
+            const filterStyle = isSvgImg
+              ? lime400Filter
+              : undefined;
 
             return (
               <div
                 key={`${img.src}-${idx}`}
-                className="flex-shrink-0 flex flex-col items-center bg-white px-5 rounded-xl justify-center"
-
+                className={`flex-shrink-0 flex flex-col items-center px-5 rounded-xl  justify-center ${className || ""}`}
                 style={{ width: imageSize, height: imageSize + 32 }}
               >
                 <img
@@ -94,10 +74,10 @@ export default function MarqueeSlider({
                   style={{
                     maxHeight: imageSize,
                     maxWidth: imageSize,
-                    filter: isSvgImg ? filterStyle : undefined,
+                    filter: filterStyle,
                   }}
                 />
-                <span className="mt-2 text-sm text-gray-700 text-center w-full truncate" title={img.name}>
+                <span className="mt-2 text-sm  text-center w-full truncate" title={img.name}>
                   {img.name}
                 </span>
               </div>
@@ -123,10 +103,10 @@ export default function MarqueeSlider({
             transform: translateX(0%);
           }
         }
-        /* Optional: If you want to allow easy color override via CSS variable */
+        /* Lime-400 colorize for SVGs (for black SVGs) */
         .svg-colorize {
-          /* fallback filter for emerald-600, override with style if needed */
-          filter: invert(41%) sepia(91%) saturate(484%) hue-rotate(120deg) brightness(92%) contrast(91%);
+          /* lime-400: #a3e635 */
+          filter: invert(81%) sepia(97%) saturate(749%) hue-rotate(24deg) brightness(97%) contrast(92%);
         }
       `}</style>
     </section>

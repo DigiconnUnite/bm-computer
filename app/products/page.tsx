@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, px } from "framer-motion";
 import { Heart, Eye, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -23,7 +23,7 @@ const productSections = [
     title: "PCs & Laptops",
     products: [
       {
-        src: '/products/desktop-pc.webp',
+        src: '/products/desktop-pc.png',
         alt: "Desktop PCs",
         title: "Desktop PCs",
         category: "Computers",
@@ -476,48 +476,55 @@ const brands = [
 ];
 
 const categories = [
-  "Computers & Laptops",
-  "Smartphones & Tablets",
-  "Cameras & Lenses",
-  "Appliances",
-  "TVs & Audio",
-  "Headphones",
+  "PCs & Laptops",
+  "Peripherals",
+  "Components",
+  "Storage & Drives",
+  "Displays & Graphics",
+  "Networking",
+  "Accessories & Essentials",
+  "Software & Services",
 ];
 
 function ProductCard({ product }: { product: any }) {
   return (
     <AnimatePresence>
       <div
-        className="group relative overflow-hidden rounded-2xl border border-emerald-500 p-5 shadow-md transition hover:shadow-2xl"
-        style={{
-          backgroundImage: `url(card-bg.jpg)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          // Overlay a subtle gradient for readability
-          backgroundBlendMode: 'overlay',
-          backgroundColor: 'rgba(4, 47, 46, 0.85)'
-        }}
+        className="group relative  rounded-2xl border border-lime-700 bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 shadow-xl p-7 flex flex-col items-center text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
       >
-        <div className="absolute right-3 top-3 z-10 flex gap-2">
-          {/* Reserved for future actions/buttons */}
-        </div>
-        <div className="relative mx-auto aspect-square w-full overflow-hidden rounded-xl bg-white/10">
-          <div className="absolute inset-0 bg-white/10 z-0 rounded-xl" />
+        {/* Subtle background accent */}
+        <div
+          className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-lime-500 via-lime-400/30 to-transparent opacity-20 blur-2xl"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-gradient-to-tr from-lime-400 via-lime-300/20 to-transparent opacity-10 blur-2xl"
+          aria-hidden="true"
+        />
+
+        {/* Product image with glowing aura */}
+        <div className="mb-4 flex items-center justify-center border border-lime-400/30 w-40 h-40 md:w-48 md:h-48 rounded-xl transition overflow-hidden relative z-10 bg-black/10">
           <Image
             src={product.src}
             alt={product.title}
             fill
-            className="object-contain p-6 transition-transform duration-300 group-hover:scale-110 relative z-10"
+            className="object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
+            style={{
+              filter: "brightness(1.2) drop-shadow(0 4px 32px #bef26488)",
+              objectFit: "contain",
+              pointerEvents: "none",
+            }}
             sizes="(max-width: 768px) 100vw, 300px"
             priority={false}
           />
         </div>
-        <div className="mt-4 space-y-1">
-          <h4 className="text-base font-semibold text-white drop-shadow">{product.title}</h4>
-          <p className="text-white/90 font-bold text-lg">{product.description}</p>
-          <span className="block text-xs text-white/70 mt-1 font-medium">{product.category}</span>
-        </div>
+        {/* Separator between image and text */}
+        <div className="w-12 h-1 rounded-full bg-gradient-to-r from-lime-400 via-lime-300 to-lime-500 opacity-70 mb-3" />
+        <h4 className="text-lg font-bold text-white mb-1 group-hover:text-lime-200 transition relative z-10 drop-shadow-[0_2px_8px_rgba(163,230,53,0.15)]">
+          {product.title}
+        </h4>
+        <p className="text-neutral-200 text-sm relative z-10">{product.description}</p>
+        <span className="block text-xs text-lime-300 mt-1 font-medium">{product.category}</span>
       </div>
     </AnimatePresence>
   );
@@ -536,15 +543,15 @@ function MultiProductCarousels({ sections }: { sections: any[] }) {
                   ? section.title
                   : "Untitled Section"}
               </h2>
-              <span className="block text-xs text-emerald-100 mt-1 font-medium">
+              <span className="block text-xs text-lime-300 mt-1 font-medium">
                 Explore our collection of {section?.title && typeof section.title === "string" && section.title.trim().length > 0
                   ? section.title.toLowerCase()
                   : "products"}
               </span>
             </div>
-            <Link href="#" className="text-sm text-emerald-100 hover:underline flex items-center">
+            <Link href="#" className="text-sm text-lime-300 hover:underline flex items-center">
               View all
-              <ChevronRight className="ml-1 inline h-4 w-4 text-white" />
+              <ChevronRight className="ml-1 inline h-4 w-4 text-lime-300" />
             </Link>
           </div>
           <Carousel opts={{ align: "start" }} className="relative">
@@ -555,8 +562,8 @@ function MultiProductCarousels({ sections }: { sections: any[] }) {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-emerald-100 bg-white/10 text-emerald-100 hover:bg-emerald-900" />
-            <CarouselNext className="border-emerald-100 bg-white/10 text-emerald-100 hover:bg-emerald-900" />
+            <CarouselPrevious className="border-lime-400 bg-white/10 text-lime-400 hover:bg-lime-900" />
+            <CarouselNext className="border-lime-400 bg-white/10 text-lime-400 hover:bg-lime-900" />
           </Carousel>
         </section>
       ))}
@@ -583,170 +590,242 @@ export default function ProductsPage() {
       <main className="min-h-screen font-sans text-gray-900 ">
 
         {/* Hero Section with Carousel */}
-      <section className="relative mx-auto w-full max-w-7xl px-4 pb-10 pt-12 md:pt-16">
-        <div className="relative grid items-center gap-10 md:grid-cols-2">
-          <div className="space-y-6">
-            <AnimatePresence>
-              <motion.span
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 8 }}
-                transition={{ duration: 0.6 }}
-                  className="inline-flex items-center rounded-full border border-emerald-300 bg-emerald-900/60 px-3 py-1 text-xs font-medium text-white"
-              >
-                BM COMPUTES
-              </motion.span>
-            </AnimatePresence>
-            <AnimatePresence>
-              <motion.h1
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                  className="text-4xl font-extrabold leading-tight md:text-5xl text-white drop-shadow-lg"
-              >
-                Everything Your Computer Needs, Under One Roof
-              </motion.h1>
-            </AnimatePresence>
-              <p className="max-w-lg text-emerald-100">
-              Explore premium peripherals, GPUs, and pro‑grade gear in a clean, modern light UI with emerald accents.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-2">
-              {categories.map((c) => (
-                <span
-                  key={c}
-                  className="rounded-full border border-emerald-300 bg-emerald-900/60 px-3 py-1 text-xs text-white"
+        <section className="relative mx-auto w-full max-w-7xl px-4 pb-10 pt-12 md:pt-16">
+          <div className="relative grid items-center gap-10 md:grid-cols-2">
+            <div className="space-y-6">
+              <AnimatePresence>
+                <motion.span
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.6 }}
+                  className="inline-flex items-center rounded-full border border-lime-400 bg-gradient-to-r from-lime-700 to-lime-800 px-3 py-1 text-xs font-medium text-white"
                 >
-                  {c}
-                </span>
-              ))}
-            </div>
-          </div>
-            {/* Hero carousel using all product images */}
-            <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-3xl border border-emerald-100 bg-emerald-900/40">
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-                <span className="bg-emerald-900/80 text-white px-4 py-1 rounded-full text-xs font-semibold shadow">
-                  Images of products and their categories
-                </span>
-              </div>
-              {allProductImages.map((img, i) => (
-                <motion.div
-                  key={img.src + i}
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{
-                    opacity: i === heroIndex ? 1 : 0,
-                    scale: i === heroIndex ? 1 : 0.98,
-                    zIndex: i === heroIndex ? 2 : 1,
-                  }}
-                  transition={{ duration: 0.7, ease: "easeInOut" }}
-                  className="absolute inset-0"
-                  style={{ pointerEvents: i === heroIndex ? "auto" : "none" }}
+                  BM COMPUTES
+                </motion.span>
+              </AnimatePresence>
+              <AnimatePresence>
+                <motion.h1
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ delay: 0.1, duration: 0.6 }}
+                  className="text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg"
                 >
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    priority={i === 0}
-                    className="object-contain p-10"
-                    sizes="(max-width: 768px) 100vw, 400px"
-                  />
-                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-emerald-800/90 text-white px-4 py-1 rounded-full text-xs font-medium shadow">
-                    {img.category}
-                  </div>
-                </motion.div>
-              ))}
-              {/* Dots navigation */}
-              <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-                {allProductImages.map((_, i) => (
-                  <button
-                    key={i}
-                    className={`h-2 w-2 rounded-full transition-colors duration-200 ${i === heroIndex ? "bg-white" : "bg-emerald-700/60"
-                      }`}
-                    aria-label={`Show slide ${i + 1}`}
-                    onClick={() => setHeroIndex(i)}
-                  />
+                  Everything Your Computer Needs, Under One Roof
+                </motion.h1>
+              </AnimatePresence>
+              <p className="max-w-lg text-lime-200">
+                Explore premium peripherals, GPUs, and pro‑grade gear in a clean, modern light UI with vibrant lime accents.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-2">
+                {categories.map((c) => (
+                  <span
+                    key={c}
+                    className="rounded-full bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 border border-lime-500/30 px-3 py-1 text-xs text-white"
+                  >
+                    {c}
+                  </span>
                 ))}
               </div>
             </div>
-        </div>
-      </section>
+            {/* Hero carousel using all product images */}
+            {(() => {
+
+              const heroImages = [
+                {
+                  src: '/products/desktop-pc.png',
+                  alt: "Desktop PCs",
+                  category: "Computers",
+                },
+                {
+                  src: '/products/gaming-pc.webp',
+                  alt: "Gaming PCs",
+                  category: "Gaming",
+                },
+                {
+                  src: '/products/laptop.webp',
+                  alt: "Laptops",
+                  category: "Portable",
+                },
+                {
+                  src: '/products/monitor.webp',
+                  alt: "Monitors",
+                  category: "Displays & Graphics",
+                },
+                {
+                  src: '/products/keyboard.webp',
+                  alt: "Keyboards",
+                  category: "Peripherals",
+                },
+                {
+                  src: '/products/ssd.webp',
+                  alt: "Solid State Drives",
+                  category: "Storage & Drives",
+                },
+                {
+                  src: '/products/antivirus.webp',
+                  alt: "Antivirus & Security",
+                  category: "Software & Services",
+                },
+              ];
+              return (
+                <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-3xl border border-lime-400 bg-gradient-to-br from-zinc-900 via-zinc-700 to-zinc-950">
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+                    <span className="bg-gradient-to-r from-lime-700 to-lime-800 text-white px-4 py-1 rounded-full text-xs font-semibold shadow">
+                      Images of products and their categories
+                    </span>
+                  </div>
+                  {heroImages.map((img, i) => (
+                    <motion.div
+                      key={img.src + i}
+                      initial={{ opacity: 0, scale: 0.98 }}
+                      animate={{
+                        opacity: i === heroIndex ? 1 : 0,
+                        scale: i === heroIndex ? 1 : 0.98,
+                        zIndex: i === heroIndex ? 2 : 1,
+                      }}
+                      transition={{ duration: 0.7, ease: "easeInOut" }}
+                      className="absolute inset-0"
+                      style={{ pointerEvents: i === heroIndex ? "auto" : "none" }}
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt}
+                        fill
+                        priority={i === 0}
+                        className="object-contain p-10"
+                        sizes="(max-width: 768px) 100vw, 400px"
+                      />
+                      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-gradient-to-r from-lime-700 to-lime-800 text-white px-4 py-1 rounded-full text-xs font-medium shadow">
+                        {img.category}
+                      </div>
+                    </motion.div>
+                  ))}
+                  {/* Dots navigation */}
+                  <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+                    {heroImages.map((_, i) => (
+                      <button
+                        key={i}
+                        className={`h-2 w-2 rounded-full transition-colors duration-200 ${i === heroIndex ? "bg-lime-400" : "bg-lime-700/60"
+                          }`}
+                        aria-label={`Show slide ${i + 1}`}
+                        onClick={() => setHeroIndex(i)}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
+          </div>
+        </section>
 
 
         <MultiProductCarousels sections={productSections} />
 
-      {/* Promo Banners */}
-      <section className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 py-4 md:grid-cols-2">
-          <div className="relative overflow-hidden rounded-3xl border border-emerald-400 filter backdrop-blur-md  shadow-lg bg-gradient-to-tr from-emerald-900 via-emerald-800/80 to-green-700/80 p-6 ">
-          <h3 className="text-2xl font-semibold text-gray-900">EZ-77 PC Worldwide</h3>
-          <p className="mt-2 text-emerald-700">MP-13 Ultra 13&quot;</p>
-          <p className="mt-6 text-3xl font-bold text-emerald-600">$1750</p>
-          <Button className="mt-6 rounded-2xl bg-emerald-600 text-white hover:bg-emerald-500">Buy Now</Button>
-          <Image
-            src="/pc-2.png"
-            alt="EZ-77"
-            width={460}
-            height={300}
-            className="pointer-events-none absolute -right-6 bottom-0 opacity-80"
-            priority={false}
-          />
-        </div>
-          <div className="relative overflow-hidden rounded-3xl border border-emerald-400 filter backdrop-blur-md  shadow-lg bg-gradient-to-tr from-emerald-900 via-emerald-800/80 to-green-700/80 p-6 ">
-          <h3 className="text-2xl font-semibold text-gray-900">Limited Weekly Discount</h3>
-          <p className="mt-2 text-emerald-700">Gaming Camera / Action</p>
-          <p className="mt-6 text-3xl font-bold text-emerald-600">$349</p>
-          <Button className="mt-6 rounded-2xl bg-emerald-600 text-white hover:bg-emerald-500">Shop Deals</Button>
-          <Image
-            src="/rog-nuc-2025.png"
-            alt="GoPro"
-            width={400}
-            height={240}
-            className="pointer-events-none absolute -right-8 bottom-0 opacity-80"
-            priority={false}
-          />
-        </div>
-      </section>
-
-      {/* Gaming Console Highlight */}
-        <section className="mx-auto w-full max-w-7xl px-4 py-12">
+        {/* Promo Banners */}
+        <section className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 py-4 md:grid-cols-2">
           <div
-            className="relative overflow-hidden rounded-3xl border border-emerald-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-emerald-900 via-emerald-800/80 to-green-700/80 p-0"
+            className="relative overflow-hidden rounded-3xl border border-lime-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-lime-900 via-lime-800/80 to-lime-700/80 p-0"
             style={{
-              backgroundImage: `url('/products/promo-8.jpg'), linear-gradient(to top right, #064e3b 0%, #065f46 100%)`,
+              backgroundImage: `url('/products/promo-8.jpg'), linear-gradient(to top right, #3f6212 0%, #65a30d 100%)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
             }}
           >
             {/* Decorative blurred gradient orb */}
-            <div className="pointer-events-none absolute -top-20 -left-20 h-72 w-72 rounded-full bg-gradient-to-br from-cyan-400/40 via-emerald-300/30 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
+            <div className="pointer-events-none absolute -top-20 -left-20 h-1/2  w-1/2 rounded-full bg-gradient-to-br from-lime-400/50 via-lime-600/50 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
             {/* Decorative bottom right orb */}
-            <div className="pointer-events-none absolute -bottom-16 -right-16 h-56 w-56 rounded-full bg-gradient-to-tr from-emerald-400/40 via-cyan-200/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
+            <div className="pointer-events-none absolute -bottom-16 -right-16 h-1/2 w-1/2 rounded-full bg-gradient-to-tr from-lime-500/40 via-lime-900/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
 
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
               <div>
-                <h3 className="text-3xl font-extrabold bg-gradient-to-r from-white via-emerald-200 to-cyan-200 bg-clip-text text-transparent drop-shadow-lg">
+                <h3 className="text-3xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
                   Latest Gaming Console
                 </h3>
-                <p className="mt-2 text-lg font-medium text-emerald-100/90 drop-shadow">
+                <p className="mt-2 text-lg font-medium text-lime-100/90 drop-shadow">
                   ASUS 620-QF / 825H 512FFL 1.2&quot;
                 </p>
-                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-emerald-500 via-green-500 to-emerald-400 text-white shadow-lg hover:from-emerald-400 hover:to-cyan-400 transition-all duration-200">
+                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
+                  Shop Now
+                </Button>
+              </div>
+
+            </div>
+          </div>
+          <div
+            className="relative overflow-hidden rounded-3xl border border-lime-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-lime-900 via-lime-800/80 to-lime-700/80 p-0"
+            style={{
+              backgroundImage: `url('/products/promo-4.jpg'), linear-gradient(to top right, #3f6212 0%, #65a30d 100%)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
+            {/* Decorative blurred gradient orb */}
+            <div className="pointer-events-none absolute -top-20 -left-20 h-1/2  w-1/2 rounded-full bg-gradient-to-br from-lime-400/50 via-lime-600/50 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
+            {/* Decorative bottom right orb */}
+            <div className="pointer-events-none absolute -bottom-16 -right-16 h-1/2 w-1/2 rounded-full bg-gradient-to-tr from-lime-500/40 via-lime-900/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
+
+            <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
+              <div>
+                <h3 className="text-3xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
+                  Latest Gaming Console
+                </h3>
+                <p className="mt-2 text-lg font-medium text-lime-100/90 drop-shadow">
+                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                </p>
+                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
+                  Shop Now
+                </Button>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* Gaming Console Highlight */}
+        <section className="mx-auto w-full max-w-7xl px-4 py-12">
+          <div
+            className="relative overflow-hidden rounded-3xl h-[35rem] border border-lime-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-lime-900 via-lime-800/80 to-lime-700/80 p-0"
+            style={{
+              backgroundImage: `url('/products/promo-12.png'), linear-gradient(to top right, #3f6212 0%, #65a30d 100%)`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+            }}
+          >
+            {/* Decorative blurred gradient orb */}
+            <div className="pointer-events-none absolute -top-20 -left-20  h-1/2 w-1/2 rounded-full bg-gradient-to-br from-lime-400/50 via-lime-600/50 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
+            {/* Decorative bottom right orb */}
+            <div className="pointer-events-none absolute -bottom-16 -right-16 h-1/2 w-1/2 rounded-full bg-gradient-to-tr from-lime-500/40 via-lime-900/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
+
+            <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
+              <div>
+                <h3 className="text-3xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
+                  Latest Gaming Console
+                </h3>
+                <p className="mt-2 text-lg font-medium text-lime-100/90 drop-shadow">
+                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                </p>
+                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
                   Shop Now
                 </Button>
               </div>
               {/* Optionally, you can keep a subtle overlay or gradient on the right for text readability */}
               <div className="relative h-64 w-full flex items-center justify-center">
-                <div className="absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 rounded-full bg-gradient-radial from-cyan-300/30 via-emerald-200/20 to-transparent blur-2xl opacity-60 animate-float-mid" />
-                {/* Remove the foreground Image, as the background now covers the section */}
+                <div className="absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 rounded-full bg-gradient-radial from-lime-300/30 via-lime-200/20 to-transparent blur-2xl opacity-60 animate-float-mid" />
+
               </div>
             </div>
           </div>
         </section>
 
-      {/* Brand logos */}
-      <section className="mx-auto w-full max-w-7xl px-4 py-8">
+        {/* Brand logos */}
+        <section className="mx-auto w-full max-w-7xl px-4 py-8">
           <div className="mb-4">
-            <span className="block text-center text-xs text-emerald-700 font-medium">
+            <span className="block text-center text-xs text-lime-700 font-medium">
               Images of products and their categories
             </span>
           </div>
@@ -754,53 +833,107 @@ export default function ProductsPage() {
             images={brands.map((b) => ({ src: b.image, name: b.name }))}
             direction="left"
             speed={50}
-            className=""
+            className=" border border-lime-500/50 text-white bg-gradient-to-br from-zinc-950 via-zinc-700 to-zinc-950"
             imageSize={100}
           />
-      </section>
+        </section>
 
-      {/* Additional Promo Banners */}
-      <section className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 py-10 md:grid-cols-3">
+        {/* Additional Promo Banners */}
+        <section className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-4 px-4 py-10 md:grid-cols-3">
           {/* Keyboard Promo */}
           <div
-            className="relative overflow-hidden px-4 py-12 h-60 rounded-3xl border border-emerald-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-emerald-900 via-emerald-800/80 to-green-700/80 p-0 flex flex-col items-start justify-center"
+            className="relative overflow-hidden rounded-3xl border border-lime-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-lime-900 via-lime-800/80 to-lime-700/80 p-0"
             style={{
-              backgroundImage: `url('/products/promo-9.jpg'), linear-gradient(to top right, #064e3b 0%, #065f46 100%)`,
+              backgroundImage: `url('/products/promo-9.jpg'), linear-gradient(to top right, #3f6212 0%, #65a30d 100%)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
             }}
           >
-            <h3 className="text-lg font-semibold text-white">Keyboards</h3>
-            <p className="text-emerald-100">Latest RGB mechanical models.</p>
+            {/* Decorative blurred gradient orb */}
+            <div className="pointer-events-none absolute -top-20 -left-20 h-1/2  w-1/2 rounded-full bg-gradient-to-br from-lime-400/50 via-lime-600/50 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
+            {/* Decorative bottom right orb */}
+            <div className="pointer-events-none absolute -bottom-16 -right-16 h-1/2 w-1/2 rounded-full bg-gradient-to-tr from-lime-500/40 via-lime-900/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
+
+            <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
+              <div>
+                <h3 className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
+                  Latest Gaming Console
+                </h3>
+                <p className="mt-2 text-md font-medium text-lime-100/90 drop-shadow">
+                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                </p>
+                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
+                  Shop Now
+                </Button>
+              </div>
+
+            </div>
           </div>
+
           {/* Mouse Promo */}
           <div
-            className="relative overflow-hidden px-4 py-12 h-60 rounded-3xl border border-emerald-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-emerald-900 via-emerald-800/80 to-green-700/80 p-0 flex flex-col items-start justify-center"
+            className="relative overflow-hidden rounded-3xl border border-lime-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-lime-900 via-lime-800/80 to-lime-700/80 p-0"
             style={{
-              backgroundImage: `url('/products/promo-5.jpg'), linear-gradient(to top right, #064e3b 0%, #065f46 100%)`,
+              backgroundImage: `url('/products/promo-5.jpg'), linear-gradient(to top right, #3f6212 0%, #65a30d 100%)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
             }}
           >
-            <h3 className="text-lg font-semibold text-white">Mice</h3>
-            <p className="text-emerald-100">Pro gaming &amp; work mice.</p>
-        </div>
+            {/* Decorative blurred gradient orb */}
+            <div className="pointer-events-none absolute -top-20 -left-20 h-1/2  w-1/2 rounded-full bg-gradient-to-br from-lime-400/50 via-lime-600/50 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
+            {/* Decorative bottom right orb */}
+            <div className="pointer-events-none absolute -bottom-16 -right-16 h-1/2 w-1/2 rounded-full bg-gradient-to-tr from-lime-500/40 via-lime-900/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
+
+            <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
+              <div>
+                <h3 className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
+                  Latest Gaming Console
+                </h3>
+                <p className="mt-2 text-md font-medium text-lime-100/90 drop-shadow">
+                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                </p>
+                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
+                  Shop Now
+                </Button>
+              </div>
+
+            </div>
+          </div>
+
           {/* Graphics Card Promo */}
           <div
-            className="relative overflow-hidden px-4 py-12 h-60 rounded-3xl border border-emerald-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-emerald-900 via-emerald-800/80 to-green-700/80 p-0 flex flex-col items-start justify-center"
+            className="relative overflow-hidden rounded-3xl border border-lime-400 filter backdrop-blur-md shadow-lg bg-gradient-to-tr from-lime-900 via-lime-800/80 to-lime-700/80 p-0"
             style={{
-              backgroundImage: `url('/products/promo-7.jpg'), linear-gradient(to top right, #064e3b 0%, #065f46 100%)`,
+              backgroundImage: `url('/products/promo-7.jpg'), linear-gradient(to top right, #3f6212 0%, #65a30d 100%)`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
             }}
           >
-            <h3 className="text-lg font-semibold text-white">Graphics Cards</h3>
-            <p className="text-emerald-100">Latest NVIDIA &amp; AMD GPUs.</p>
-        </div>
-      </section>
+            {/* Decorative blurred gradient orb */}
+            <div className="pointer-events-none absolute -top-20 -left-20 h-1/2  w-1/2 rounded-full bg-gradient-to-br from-lime-400/50 via-lime-600/50 to-transparent blur-3xl opacity-60 animate-float-slow z-0" />
+            {/* Decorative bottom right orb */}
+            <div className="pointer-events-none absolute -bottom-16 -right-16 h-1/2 w-1/2 rounded-full bg-gradient-to-tr from-lime-500/40 via-lime-900/30 to-transparent blur-2xl opacity-40 animate-float-reverse z-0" />
+
+            <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
+              <div>
+                <h3 className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
+                  Latest Gaming Console
+                </h3>
+                <p className="mt-2 text-md font-medium text-lime-100/90 drop-shadow">
+                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                </p>
+                <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
+                  Shop Now
+                </Button>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
       </main>
     </>
   );

@@ -4,45 +4,57 @@ import React from "react";
 
 const Background: React.FC<{
   className?: string;
-  containerClassName?: string;
+  containerclassName?: string;
   children?: React.ReactNode;
-}> = ({ className, containerClassName, children }) => {
+}> = ({ className, containerclassName, children }) => {
   return (
+
+
+
     <div
       aria-hidden="true"
       className={cn(
-        "fixed inset-0 z-0 pointer-events-none flex w-full h-full items-center justify-center overflow-hidden",
-        containerClassName
+        // Use a beautiful dark gradient as the base, with subtle overlays
+        "fixed inset-0 z-0 pointer-events-none flex w-full h-full items-center justify-center overflow-hidden bg-gradient-to-br from-zinc-800 via-zinc-800 to-zinc-900",
+        containerclassName
       )}
       style={{
-        backgroundImage: `linear-gradient(120deg, rgba(16, 185, 129, 0.12) 0%, rgba(34, 211, 238, 0.10) 100%), url(card-bg.jpg)`,
+        // Overlay a subtle emerald/cyan gradient and a soft texture
+
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         backgroundBlendMode: 'overlay',
       }}
     >
+
+
+
+
       {/* Futuristic animated neon grid */}
       <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-0">
+          {/* Lime radial gradient with visible dotted overlay using Tailwind */}
+          <div
+            className={cn(
+              "absolute inset-0 -z-10 h-full w-full items-center px-5 py-24",
+              // Dotted background using Tailwind's [background-image] and [background-size]
+              "bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#a3e635_100%)]", // lime-400
+              "before:content-[''] before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] before:bg-[size:20px_20px] before:bg-repeat"
+            )}
+          ></div>
+        </div>
         <img
           src="/neon-grid.png"
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover opacity-25 animate-pulse-slow"
+          className="w-full h-full object-cover opacity-20 animate-pulse-slow"
           style={{
             mixBlendMode: "screen",
-            filter: "blur(2.5px) brightness(1.25)"
+            filter: "blur(2.5px) brightness(1.18)"
           }}
         />
       </div>
-      {/* Animated glowing orbs */}
-      <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-emerald-400 via-cyan-300 to-transparent opacity-60 blur-3xl animate-float-slow shadow-[0_0_120px_60px_rgba(16,185,129,0.25)]" />
-      <div className="absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-cyan-400 via-emerald-200 to-transparent opacity-50 blur-3xl animate-float-reverse shadow-[0_0_120px_60px_rgba(34,211,238,0.18)]" />
-      {/* Extra glowing elements for more depth */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] h-[320px] rounded-full bg-gradient-radial from-emerald-300/40 via-cyan-200/30 to-transparent opacity-40 blur-2xl animate-float-mid pointer-events-none" />
-      <div className="absolute bottom-10 left-1/4 w-[180px] h-[180px] rounded-full bg-gradient-to-br from-cyan-300/40 via-emerald-200/30 to-transparent opacity-30 blur-2xl animate-float-slow pointer-events-none" />
-      <div className="absolute top-10 right-1/4 w-[140px] h-[140px] rounded-full bg-gradient-to-tr from-emerald-400/40 via-cyan-200/30 to-transparent opacity-25 blur-2xl animate-float-reverse pointer-events-none" />
-
 
       {/* Children content */}
       <div className={cn("relative z-20", className)}>{children}</div>
@@ -61,8 +73,8 @@ const Background: React.FC<{
           50% { transform: translateY(15px) scale(1.03); }
         }
         @keyframes pulse-slow {
-          0%, 100% { opacity: 0.18; }
-          50% { opacity: 0.28; }
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.22; }
         }
         @keyframes sparkle {
           0% { opacity: 0.1; transform: scale(0.8);}

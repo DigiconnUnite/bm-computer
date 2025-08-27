@@ -18,7 +18,6 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-
   const footerLinks = [
     {
       title: 'Services',
@@ -45,7 +44,7 @@ export default function Footer() {
         {
           name: (
             <span className="flex items-start gap-2">
-              <MapPin className="w-8 h-8 text-emerald-600 mt-0.5" />
+              <MapPin className="w-8 h-8 text-lime-400 mt-0.5 flex-shrink-0" />
               <span>Computers Market, Sanjay Palace, Agra</span>
             </span>
           ),
@@ -54,7 +53,7 @@ export default function Footer() {
         {
           name: (
             <span className="flex items-start gap-2">
-              <Phone className="w-4 h-4 text-emerald-600 mt-0.5" />
+              <Phone className="w-4 h-4 text-lime-400 mt-0.5 flex-shrink-0" />
               <span>+91-90909090</span>
             </span>
           ),
@@ -63,7 +62,7 @@ export default function Footer() {
         {
           name: (
             <span className="flex items-start gap-2">
-              <Mail className="w-4 h-4 text-emerald-600 mt-0.5" />
+              <Mail className="w-4 h-4 text-lime-400 mt-0.5 flex-shrink-0" />
               <span>support@bmcomputers.com</span>
             </span>
           ),
@@ -82,15 +81,18 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-br from-emerald-50 via-white to-emerald-100 border-t border-gray-200 overflow-hidden shadow-xl font-sans">
-      {/* Animated Glow Background */}
-      <div className="pointer-events-none absolute -top-32 -left-32 w-[400px] h-[400px] rounded-full bg-gradient-to-br from-emerald-300 via-green-200 to-transparent opacity-40 blur-3xl animate-pulse" />
-      <div className="pointer-events-none absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-green-400 via-emerald-200 to-transparent opacity-30 blur-3xl animate-pulse" />
+    <footer className="relative bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 border-t border-zinc-700 overflow-hidden shadow-2xl font-sans">
+      {/* Enhanced Animated Glow Background */}
+      <div className="pointer-events-none absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-lime-500/15 via-lime-400/10 to-transparent opacity-70 blur-3xl animate-float-slow" />
+      <div className="pointer-events-none absolute -bottom-40 -right-40 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-lime-500/15 via-lime-400/10 to-transparent opacity-60 blur-3xl animate-float-reverse" />
 
-      {/* Green gradient strip */}
-      <div className="h-1 w-full gradient-green" />
+      {/* Subtle grid pattern overlay */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBvcGFjaXR5PSIwLjA1Ij4KICAgIDxjaXJjbGUgZmlsbD0iI0ZGRiIgY3g9IjMwIiBjeT0iMzAiIHI9IjEiLz4KICA8L2c+Cjwvc3ZnPg==')] opacity-20"></div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-20 pb-10">
+      {/* Lime gradient strip */}
+      <div className="h-1 w-full bg-gradient-to-r from-lime-500 to-lime-400" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-20 pb-10 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Brand & Social */}
           <motion.div
@@ -102,27 +104,27 @@ export default function Footer() {
           >
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="inline-block w-10 h-10 rounded-full bg-gradient-to-br from-emerald-500 to-green-400 flex items-center justify-center shadow-lg">
+                <span className="inline-block w-10 h-10 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg shadow-lime-500/30">
                   <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
                     <circle cx="16" cy="16" r="16" fill="url(#paint0_linear)" />
                     <text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" dy=".3em" fontFamily="Inter, sans-serif">BM</text>
                     <defs>
                       <linearGradient id="paint0_linear" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                        <stop stopColor="#10B981" />
-                        <stop offset="1" stopColor="#34D399" />
+                        <stop stopColor="#65a30d" />
+                        <stop offset="1" stopColor="#84cc16" />
                       </linearGradient>
                     </defs>
                   </svg>
                 </span>
-                <h3 className="text-3xl md:text-4xl font-black text-emerald-500 tracking-tight font-display leading-tight">
+                <h3 className="text-3xl md:text-4xl font-black text-lime-400 tracking-tight font-display leading-tight">
                   BM computers
                 </h3>
               </div>
-              <p className="text-gray-700 mb-8 max-w-md leading-relaxed text-base md:text-lg font-normal">
+              <p className="text-zinc-300 mb-8 max-w-md leading-relaxed text-base md:text-lg font-normal">
                 Powering the future of computing with{' '}
-                <span className="font-semibold text-emerald-700">innovation</span>,{' '}
-                <span className="font-semibold text-emerald-700">expertise</span>, and{' '}
-                <span className="font-semibold text-emerald-700">unparalleled service</span>.
+                <span className="font-semibold text-lime-400">innovation</span>,{' '}
+                <span className="font-semibold text-lime-400">expertise</span>, and{' '}
+                <span className="font-semibold text-lime-400">unparalleled service</span>.
               </p>
             </div>
             {/* Social Links */}
@@ -131,13 +133,12 @@ export default function Footer() {
                 <motion.a
                   key={label}
                   href={href}
-                  whileHover={{ scale: 1.15, y: -3, boxShadow: '0 4px 24px 0 rgba(16,185,129,0.15)' }}
+                  whileHover={{ scale: 1.15, y: -3, boxShadow: '0 8px 30px rgba(101, 163, 13, 0.3)' }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-11 h-11 bg-white/80 hover:bg-gradient-to-br hover:from-emerald-500 hover:to-green-400 rounded-full flex items-center justify-center transition-all duration-300 hover:text-white group shadow-md"
+                  className="w-11 h-11 bg-zinc-800/80 backdrop-blur-sm hover:bg-gradient-to-br hover:from-lime-500 hover:to-lime-400 rounded-full flex items-center justify-center transition-all duration-300 hover:text-black group shadow-lg border border-zinc-700/50"
                   aria-label={label}
-                  style={{ boxShadow: '0 2px 8px 0 rgba(16,185,129,0.07)' }}
                 >
-                  <Icon className="w-5 h-5 group-hover:scale-125 group-hover:text-white text-emerald-700 transition-transform duration-300" />
+                  <Icon className="w-5 h-5 group-hover:scale-125 group-hover:text-black text-lime-400 transition-transform duration-300" />
                 </motion.a>
               ))}
             </div>
@@ -154,7 +155,7 @@ export default function Footer() {
                 viewport={{ once: true }}
                 className="min-w-[160px]"
               >
-                <h4 className="text-lg md:text-xl font-bold text-gray-900 mb-5 tracking-wide flex items-center gap-2 font-display border-b-2 border-emerald-400 pb-1 w-fit">
+                <h4 className="text-lg md:text-xl font-bold text-lime-400 mb-5 tracking-wide flex items-center gap-2 font-display border-b-2 border-lime-500 pb-1 w-fit">
                   {section.title}
                 </h4>
                 <ul className="space-y-3">
@@ -162,11 +163,12 @@ export default function Footer() {
                     <li key={typeof link.name === 'string' ? link.name : i}>
                       <motion.a
                         href={link.href}
-                        whileHover={{ borderBottom: '3px', color: '#059669' }}
-                        className="text-gray-700 font-semibold text-sm transition-all duration-300 flex items-center gap-2"
+                        whileHover={{ x: 5, color: '#84cc16' }}
+                        className="text-zinc-300 font-semibold text-sm transition-all duration-300 flex items-center gap-2 hover:text-lime-400 group"
                         target={link.href?.startsWith('http') || link.href?.startsWith('mailto') || link.href?.startsWith('tel') ? '_blank' : undefined}
                         rel={link.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
+                        <span className="w-1 h-1 bg-lime-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         {link.name}
                       </motion.a>
                     </li>
@@ -178,7 +180,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="my-8 border-t  border-emerald-300" />
+        <div className="my-8 border-t border-zinc-700/60" />
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -187,12 +189,12 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="text-gray-600 text-center text-sm font-semibold"
+            className="text-zinc-400 text-center text-sm font-semibold"
           >
             <span className="block md:inline">
-              © 2024 <span className="font-semibold text-emerald-700">BM computers</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="font-semibold text-lime-400">BM computers</span>. All rights reserved.
             </span>
-            <span className="hidden md:inline mx-2 text-emerald-300">|</span>
+            <span className="hidden md:inline mx-2 text-lime-700">|</span>
           </motion.div>
 
           {/* Developer Credit Section */}
@@ -201,26 +203,37 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-xs md:text-sm text-gray-600 font-semibold text-center "
+            className="text-xs md:text-sm text-zinc-400 font-semibold text-center"
           >
             Developed by{' '}
             <a
               href="https://digiconnunite.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-600 hover:underline font-bold"
+              className="text-lime-400 hover:underline font-bold hover:text-lime-300 transition-colors duration-300"
             >
               Digiconn Unite Pvt Ltd
             </a>
           </motion.div>
 
-          <div className="text-sm font-semibold text-gray-600">
-            <a href="#" className="hover:underline hover:text-emerald-700 transition mx-1">Privacy Policy</a>
-            <span className="mx-1 text-emerald-300">|</span>
-            <a href="#" className="hover:underline hover:text-emerald-700 transition mx-1">Terms of Service</a>
+          <div className="text-sm font-semibold text-zinc-400">
+            <a href="#" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Privacy Policy</a>
+            <span className="mx-1 text-lime-700">|</span>
+            <a href="#" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Terms of Service</a>
           </div>
         </div>
       </div>
+
+      {/* Scroll to top button */}
+      <motion.button
+        onClick={scrollToTop}
+        whileHover={{ scale: 1.1, y: -5, boxShadow: '0 8px 25px rgba(101, 163, 13, 0.4)' }}
+        whileTap={{ scale: 0.95 }}
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg shadow-lime-500/30 border border-lime-400/30 backdrop-blur-sm"
+        aria-label="Scroll to top"
+      >
+        <ArrowUp className="w-6 h-6 text-black" />
+      </motion.button>
     </footer>
   );
 }

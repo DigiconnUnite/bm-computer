@@ -53,19 +53,22 @@ function OrbitingImage({
   const x = Math.cos((angle * Math.PI) / 180) * radius;
   const y = Math.sin((angle * Math.PI) / 180) * radius;
 
-  // Hue-rotate for greenish tone: 90deg is green, 120deg is more vivid green
-  // You can tweak the value as needed for your icons
-  const greenHue = "hue-rotate(100deg)";
+
+  const invertWhite = "invert(1) brightness(2) hue-rotate(-60deg) saturate(2)";
 
   return (
     <div
-      className="absolute flex items-center justify-center bg-white border border-gray-200 rounded-full shadow"
+      className="absolute flex items-center justify-center border border-gray-200 rounded-full shadow border-lime-500/50 text-white bg-gradient-to-br from-zinc-950 via-zinc-700 to-zinc-950 backdrop-blur-md"
       style={{
         width: size,
         height: size,
         top: "50%",
         left: "50%",
         transform: `translate(${x}px, ${y}px) translate(-50%, -50%)`,
+        boxShadow: "0 4px 24px 0 rgba(101,163,13,0.10)",
+        border: "1.5px solid rgba(163, 230, 53, 0.25)",
+        backdropFilter: "blur(8px)",
+        WebkitBackdropFilter: "blur(8px)",
       }}
       title={label}
     >
@@ -76,7 +79,7 @@ function OrbitingImage({
           width: size * 0.5,
           height: size * 0.5,
           objectFit: "contain",
-          filter: greenHue,
+          filter: invertWhite,
         }}
         draggable={false}
       />
@@ -87,10 +90,10 @@ function OrbitingImage({
 export function SolarSystem() {
   return (
     <div className="relative w-[600px] h-[600px] mx-auto">
-      {/* Orbit circles */}
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 border border-green-800/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute top-1/2 left-1/2 w-96 h-96 border border-blue-800/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] border border-purple-800/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
+      {/* Orbit circles - changed to lime color */}
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 border border-lime-500/40 rounded-full -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/2 w-96 h-96 border border-lime-400/30 rounded-full -translate-x-1/2 -translate-y-1/2" />
+      <div className="absolute top-1/2 left-1/2 w-[600px] h-[600px] border border-lime-300/30 rounded-full -translate-x-1/2 -translate-y-1/2" />
 
       {/* Inner Orbit Images */}
       {innerOrbitImages.map(({ src, label }, i) => (

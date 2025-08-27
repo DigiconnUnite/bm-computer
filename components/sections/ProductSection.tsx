@@ -2,9 +2,10 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-
+import Image from 'next/image';
 const productSections = [
+  // ... (same as before, omitted for brevity)
+  // keep the productSections array unchanged
   {
     title: "PCs & Laptops",
     products: [
@@ -50,6 +51,7 @@ const productSections = [
       },
     ],
   },
+  // ... rest of productSections unchanged
   {
     title: "Peripherals",
     products: [
@@ -389,10 +391,8 @@ export default function ProductSection() {
   return (
     <section
       id="products"
-      className="relative py-20  overflow-hidden"
+      className="relative py-20 overflow-hidden  to-lime-900"
     >
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-emerald-100 rounded-full opacity-30 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-emerald-200 rounded-full opacity-20 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
@@ -400,16 +400,16 @@ export default function ProductSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-black text-emerald-600 mb-4 text-center font-display"
+          className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg mb-4 text-center "
         >
-          Our <span className="text-emerald-700">Products</span>
+          Our <span className="text-lime-300">Products</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 mb-12 text-center"
+          className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 mb-12 text-center"
         >
           Explore the latest and greatest in computer hardware, peripherals, networking, software, and more. Everything you need for work, play, and performance—under one roof.
         </motion.p>
@@ -420,10 +420,10 @@ export default function ProductSection() {
             <button
               key={idx}
               onClick={() => handleTab(idx)}
-              className={`w-3 h-3 rounded-full border-2 border-emerald-400 transition-all duration-200 ${
+              className={`w-3 h-3 rounded-full border-2 border-lime-400 transition-all duration-200 ${
                 sectionPage === idx
-                  ? 'bg-emerald-600 border-emerald-600 scale-125 shadow'
-                  : 'bg-white hover:bg-emerald-100'
+                ? 'bg-lime-400 border-lime-400 scale-125 shadow'
+                : 'bg-white hover:bg-lime-100'
               }`}
               aria-label={`Go to section page ${idx + 1}`}
             />
@@ -434,17 +434,17 @@ export default function ProductSection() {
         <div className="flex justify-between items-center mb-4">
           <button
             onClick={handlePrev}
-            className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-700 font-bold shadow hover:bg-emerald-200 transition"
+            className="px-4 py-2 rounded-lg bg-lime-100 text-lime-800 font-bold shadow hover:bg-lime-200 transition"
             aria-label="Previous"
           >
             &#8592; Prev
           </button>
-          <span className="text-gray-500 text-sm">
+          <span className="text-neutral-400 text-sm">
             Page {sectionPage + 1} of {totalSectionPages}
           </span>
           <button
             onClick={handleNext}
-            className="px-4 py-2 rounded-lg bg-emerald-100 text-emerald-700 font-bold shadow hover:bg-emerald-200 transition"
+            className="px-4 py-2 rounded-lg bg-lime-100 text-lime-800 font-bold shadow hover:bg-lime-200 transition"
             aria-label="Next"
           >
             Next &#8594;
@@ -469,7 +469,7 @@ export default function ProductSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 + sIdx * 0.1 }}
                     viewport={{ once: true }}
-                    className="text-2xl md:text-3xl font-bold text-emerald-700 mb-6 font-display text-center"
+                    className="text-2xl md:text-3xl font-bold text-lime-300 mb-6 font-display text-center drop-shadow-[0_2px_8px_rgba(163,230,53,0.10)]"
                   >
                     {section.title}
                   </motion.h3>
@@ -480,38 +480,42 @@ export default function ProductSection() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.1 + idx * 0.07 }}
-                        className="group relative rounded-2xl shadow-xl p-7 flex flex-col items-center text-center border border-emerald-800 bg-gradient-to-br from-emerald-900 via-teal-950 to-emerald-950 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
+                        className="group relative rounded-2xl shadow-xl p-7 flex flex-col items-center text-center border border-lime-700 bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
                       >
                         {/* Subtle background accent */}
                         <div
-                          className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-emerald-700 via-emerald-500/30 to-transparent opacity-20 blur-2xl"
+                          className="pointer-events-none absolute -top-10 -right-10 w-32 h-32 rounded-full bg-gradient-to-br from-lime-500 via-lime-400/30 to-transparent opacity-20 blur-2xl"
                           aria-hidden="true"
                         />
                         <div
-                          className="pointer-events-none absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-gradient-to-tr from-emerald-600 via-emerald-400/20 to-transparent opacity-10 blur-2xl"
+                          className="pointer-events-none absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-gradient-to-tr from-lime-400 via-lime-300/20 to-transparent opacity-10 blur-2xl"
                           aria-hidden="true"
                         />
-                        {/* Glowing Aura Behind Image */}
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-44 h-44 md:w-56 md:h-56 z-0 pointer-events-none" aria-hidden="true">
-                          <div className="w-full h-full rounded-full bg-emerald-400 opacity-30 blur-3xl" />
-                          <div className="w-full h-full rounded-full bg-emerald-300 opacity-20 blur-2xl absolute top-0 left-0" />
-                          <div className="w-full h-full rounded-full bg-green-200 opacity-10 blur-xl absolute top-0 left-0" />
-                        </div>
+
                         {/* Product image with glowing aura */}
-                        <div className="mb-4 flex items-center justify-center w-40 h-40 md:w-48 md:h-48 rounded-xl transition overflow-hidden relative z-10 bg-black/10">
-                          <img
+                        <div className="mb-4 flex items-center justify-center border border-lime-400/30 w-40 h-40 md:w-48 md:h-48 rounded-xl transition overflow-hidden relative z-10 bg-black/10">
+                          <Image
                             src={product.image}
                             alt={product.name}
-                            className="object-contain w-full h-full relative z-10"
-                            loading="lazy"
+                            width={800}
+                            height={800}
+                            className="object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
+                            style={{
+                              filter: "brightness(1.2) drop-shadow(0 4px 32px #bef26488)",
+                              objectFit: "contain",
+                              pointerEvents: "none",
+                            }}
+                            draggable={false}
+                            priority={idx === 0}
                           />
+
                         </div>
                         {/* Separator between image and text */}
-                        <div className="w-12 h-1 rounded-full bg-gradient-to-r from-emerald-400 via-emerald-300 to-emerald-500 opacity-70 mb-3" />
-                        <h4 className="text-lg font-bold text-white mb-1 group-hover:text-emerald-200 transition relative z-10 drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]">
+                        <div className="w-12 h-1 rounded-full bg-gradient-to-r from-lime-400 via-lime-300 to-lime-500 opacity-70 mb-3" />
+                        <h4 className="text-lg font-bold text-white mb-1 group-hover:text-lime-200 transition relative z-10 drop-shadow-[0_2px_8px_rgba(163,230,53,0.15)]">
                           {product.name}
                         </h4>
-                        <p className="text-white/80 text-sm relative z-10">{product.description}</p>
+                        <p className="text-neutral-200 text-sm relative z-10">{product.description}</p>
                       </motion.div>
                     ))}
                   </div>

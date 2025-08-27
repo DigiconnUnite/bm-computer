@@ -20,7 +20,6 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend or an email service
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
     setForm({
@@ -35,25 +34,24 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-20  overflow-hidden"
+      className="relative py-20 overflow-hidden "
     >
-
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl font-black text-emerald-600 mb-4 text-center font-display"
+          className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg mb-4 text-center font-display"
         >
-          Quick <span className="text-emerald-700">Contact</span>
+          Quick <span className="from-lime-400 to-lime-600 bg-gradient-to-r bg-clip-text text-transparent">Contact</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
           viewport={{ once: true }}
-          className="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 mb-12 text-center"
+          className="max-w-2xl mx-auto text-lg md:text-xl text-lime-100/90 mb-12 text-center"
         >
           Need a custom PC, laptop, or have a quick question? Reach out and our experts will get back to you fast!
         </motion.p>
@@ -65,31 +63,32 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="flex-1 bg-white/80 rounded-2xl shadow-lg p-8 flex flex-col justify-center mb-8 md:mb-0"
+            className="flex-1  bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 rounded-2xl border border-lime-400 shadow-lg p-8 flex flex-col justify-center mb-8 md:mb-0"
+
           >
-            <h3 className="text-2xl font-bold text-emerald-700 mb-6 font-display">Contact Information</h3>
-            <ul className="space-y-5 text-gray-700 text-base">
+            <h3 className="text-2xl font-bold text-lime-300 mb-6 font-display">Contact Information</h3>
+            <ul className="space-y-5 text-lime-100/90 text-base">
               <li className="flex items-start gap-3">
-                <MapPin className="w-6 h-6 text-emerald-600 mt-1" />
+                <MapPin className="w-6 h-6 text-lime-400 mt-1" />
                 <span>Computers Market, Sanjay Palace, Agra</span>
               </li>
               <li className="flex items-start gap-3">
-                <Phone className="w-5 h-5 text-emerald-600 mt-1" />
-                <a href="tel:+9190909090" className="hover:underline hover:text-emerald-700 transition">
+                <Phone className="w-5 h-5 text-lime-400 mt-1" />
+                <a href="tel:+9190909090" className="hover:underline hover:text-lime-300 transition">
                   +91-90909090
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <Mail className="w-5 h-5 text-emerald-600 mt-1" />
-                <a href="mailto:support@bmcomputers.com" className="hover:underline hover:text-emerald-700 transition">
+                <Mail className="w-5 h-5 text-lime-400 mt-1" />
+                <a href="mailto:support@bmcomputers.com" className="hover:underline hover:text-lime-300 transition">
                   support@bmcomputers.com
                 </a>
               </li>
             </ul>
             <div className="mt-8">
-              <h4 className="text-lg font-semibold text-emerald-700 mb-2">Business Hours</h4>
-              <p className="text-gray-600">Mon - Sat: 10:00 AM - 8:00 PM</p>
-              <p className="text-gray-600">Sunday: Closed</p>
+              <h4 className="text-lg font-semibold text-lime-300 mb-2">Business Hours</h4>
+              <p className="text-lime-200">Mon - Sat: 10:00 AM - 8:00 PM</p>
+              <p className="text-lime-200">Sunday: Closed</p>
             </div>
           </motion.div>
 
@@ -100,16 +99,17 @@ export default function ContactSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="flex-1 bg-white/90 rounded-2xl shadow-lg p-8 flex flex-col justify-center"
+            className="flex-1  bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 rounded-2xl border border-lime-400 shadow-lg p-8 flex flex-col justify-center"
+
           >
-            <h3 className="text-2xl font-bold text-emerald-700 mb-6 font-display">Quick Enquiry Form</h3>
+            <h3 className="text-2xl font-bold text-lime-50 mb-6 font-display">Quick Enquiry Form</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-700 font-semibold mb-2" htmlFor="name">
+                <label className="block text-lime-100 font-semibold mb-2" htmlFor="name">
                   Name
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                  className="w-full px-4 py-3 rounded-lg border border-lime-300 bg-zinc-950/60 text-lime-100 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 outline-none transition placeholder:text-lime-400"
                   type="text"
                   id="name"
                   name="name"
@@ -121,11 +121,11 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold mb-2" htmlFor="email">
+                <label className="block text-lime-100 font-semibold mb-2" htmlFor="email">
                   Email
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                  className="w-full px-4 py-3 rounded-lg border border-lime-300 bg-zinc-950/60 text-lime-100 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 outline-none transition placeholder:text-lime-400"
                   type="email"
                   id="email"
                   name="email"
@@ -137,11 +137,11 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold mb-2" htmlFor="phone">
+                <label className="block text-lime-100 font-semibold mb-2" htmlFor="phone">
                   Phone
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                  className="w-full px-4 py-3 rounded-lg border border-lime-300 bg-zinc-950/60 text-lime-100 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 outline-none transition placeholder:text-lime-400"
                   type="tel"
                   id="phone"
                   name="phone"
@@ -153,11 +153,11 @@ export default function ContactSection() {
                 />
               </div>
               <div>
-                <label className="block text-gray-700 font-semibold mb-2" htmlFor="requirements">
+                <label className="block text-lime-100 font-semibold mb-2" htmlFor="requirements">
                   Computer Requirement
                 </label>
                 <input
-                  className="w-full px-4 py-3 rounded-lg border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition"
+                  className="w-full px-4 py-3 rounded-lg border border-lime-300 bg-zinc-950/60 text-lime-100 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 outline-none transition placeholder:text-lime-400"
                   type="text"
                   id="requirements"
                   name="requirements"
@@ -169,11 +169,11 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="mt-6">
-              <label className="block text-gray-700 font-semibold mb-2" htmlFor="message">
+              <label className="block text-lime-100 font-semibold mb-2" htmlFor="message">
                 Message
               </label>
               <textarea
-                className="w-full px-4 py-3 rounded-lg border border-emerald-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-100 outline-none transition min-h-[100px] resize-y"
+                className="w-full px-4 py-3 rounded-lg border border-lime-300 bg-zinc-950/60 text-lime-100 focus:border-lime-400 focus:ring-2 focus:ring-lime-200 outline-none transition min-h-[100px] resize-y placeholder:text-lime-400"
                 id="message"
                 name="message"
                 value={form.message}
@@ -183,10 +183,10 @@ export default function ContactSection() {
               />
             </div>
             <motion.button
-              whileHover={{ scale: 1.04, backgroundColor: '#059669', color: '#fff' }}
+              whileHover={{ scale: 1.04, backgroundColor: '#a3e635', color: '#222' }}
               whileTap={{ scale: 0.97 }}
               type="submit"
-              className="mt-8 w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-emerald-700 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+              className="mt-8 w-full flex items-center justify-center gap-2 bg-lime-400 text-zinc-900 font-bold py-3 rounded-lg shadow-lg transition-all duration-300 hover:bg-lime-500 focus:outline-none focus:ring-2 focus:ring-lime-300"
               disabled={submitted}
             >
               <Send className="w-5 h-5" />
@@ -196,7 +196,7 @@ export default function ContactSection() {
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-emerald-700 font-semibold text-center mt-4"
+                className="text-lime-400 font-semibold text-center mt-4"
               >
                 Thank you! We have received your enquiry.
               </motion.p>
