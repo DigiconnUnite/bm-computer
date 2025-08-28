@@ -43,7 +43,7 @@ export default function HeroSection() {
     <>
       {/* Modern Hero Section with Animations */}
       <section className="relative min-h-[90vh] top-0 flex items-center justify-center  bg-transparent">
-        {/* Modern Background Glow Effects - LIME themed */}
+        {/* Modern Background Glow Effects - lime themed */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-lime-400/30 via-lime-500/30 to-lime-600/30 rounded-full opacity-40 blur-[120px] animate-pulse" />
           <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-tr from-lime-500/20 via-lime-400/20 to-lime-600/20 rounded-full opacity-30 blur-[100px] animate-pulse delay-1000" />
@@ -60,7 +60,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
+          <div className="mx-auto lg:max-w-7xl w-max-7xl px-5 sm:px-10 md:px-12 z-50 lg:px-5">
             <div className="text-center flex flex-col items-center space-y-10">
               {/* Tagline */}
               <span className="flex items-center border border-lime-500 px-3 py-0.5 rounded-full bg-lime-900/60 backdrop-blur-sm  text-lime-400 dark:text-lime-100 font-semibold shadow-sm">
@@ -78,7 +78,7 @@ export default function HeroSection() {
               </h1>
               {/* Description */}
               <p className="text-lg md:text-xl text-lime-100/90 dark:text-lime-100 text-center max-w-2xl font-medium">
-                At <span className="font-bold text-lime-300">BM computers</span>, we provide a complete range of computing solutions—from powerful PCs and monitors to graphic cards, storage, and accessories. Whether you’re a gamer, creator, or professional, our store brings you the latest technology in one place, built for performance and reliability.
+                At <span className="font-bold text-lime-300">BM COMPUTERS</span>, we provide a complete range of computing solutions—from powerful PCs and monitors to graphic cards, storage, and accessories. Whether you’re a gamer, creator, or professional, our store brings you the latest technology in one place, built for performance and reliability.
               </p>
               {/* Call to Action Button */}
               <div className="flex justify-center">

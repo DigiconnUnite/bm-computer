@@ -1,471 +1,285 @@
 "use client";
 import Background from "@/components/ui/Backround";
 import { motion } from "framer-motion";
-import {
-  FaLaptopCode,
-  FaUsers,
-  FaAward,
-  FaHandshake,
-  FaStore,
-  FaLightbulb,
-  FaShieldAlt,
-  FaHandHoldingHeart,
-} from "react-icons/fa";
-import Image from "next/image";
-
-const values = [
-  {
-    icon: <FaLightbulb className="text-lime-400 text-4xl" />,
-    title: "Innovation",
-    desc: "We bring the latest technology trends to our customers.",
-  },
-  {
-    icon: <FaShieldAlt className="text-lime-400 text-4xl" />,
-    title: "Trust",
-    desc: "Transparent service with a customer-first approach.",
-  },
-  {
-    icon: <FaLaptopCode className="text-lime-400 text-4xl" />,
-    title: "Expertise",
-    desc: "Trained professionals to guide your computing needs.",
-  },
-  {
-    icon: <FaHandHoldingHeart className="text-lime-400 text-4xl" />,
-    title: "Community",
-    desc: "Serving tech enthusiasts and businesses in our region.",
-  },
-];
-
-const team = [
-  {
-    name: "Mr. Bharat Mehta",
-    role: "Founder & CEO",
-    img: "/team/founder.jpg",
-  },
-  {
-    name: "Ms. Priya Sharma",
-    role: "Sales Manager",
-    img: "/team/manager.jpg",
-  },
-  {
-    name: "Mr. Ankit Verma",
-    role: "Lead Technician",
-    img: "/team/tech.jpg",
-  },
-];
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="min-h-screen bg-transparent text-white">
       <Background />
-      <main className="relative min-h-screen font-sans text-lime-50  overflow-x-clip">
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-gradient-to-t z-10"></div>
-            <Image
-              src="/store-interior.jpg"
-              alt="BM Computers Store Interior"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-          <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              className="inline-block rounded-full border border-lime-400 bg-gradient-to-r from-lime-600 via-lime-500 to-lime-400 px-6 py-2 text-sm font-semibold text-zinc-950 tracking-widest shadow-lg backdrop-blur mb-6"
-            >
-              WELCOME TO BM COMPUTERS
-            </motion.span>
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.7 }}
-              className="text-5xl md:text-7xl font-extrabold mb-6"
-            >
-              <span className="bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent drop-shadow-lg">
-                About BM Computers
-              </span>
-            </motion.h1>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.7 }}
-              className="text-2xl md:text-3xl font-bold text-lime-400 mb-6"
-            >
-              Everything Your Computer Needs, Under One Roof
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.7 }}
-              className="text-xl text-lime-100/90 max-w-2xl mx-auto"
-            >
-              BM Computers is not just a store — it's a hub for innovation, quality, and trust. With years of experience, we bring the latest computing technology closer to you.
-            </motion.p>
-          </div>
-        </section>
+      {/* Hero Section */}
+      <section className="relative px-4 py-24 overflow-hidden">
 
-        {/* Our Story - Left Image, Right Content */}
-        <section className="relative py-24 px-4">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative h-96 rounded-3xl overflow-hidden border-2 border-lime-400/40 shadow-2xl"
-            >
-              <Image
-                src="/about-story.jpg"
-                alt="BM Computers Story"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="space-y-7"
-            >
-              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-                Our Story
-              </h2>
-              <p className="text-lg text-lime-100/90">
-                Founded with a passion for technology, BM Computers has grown into a trusted name for modern computing solutions. We focus on creating a customer-first experience, ensuring that every visit to our store is worthwhile.
-              </p>
-              <p className="text-lg text-lime-100/90">
-                What started as a small computer repair shop has now transformed into Agra's premier destination for all computing needs. Our journey is a testament to our commitment to quality, innovation, and customer satisfaction.
-              </p>
-              <p className="text-lg text-lime-100/90">
-                Today, we stand proud as a one-stop solution for individuals, businesses, and educational institutions seeking reliable technology partners.
-              </p>
-            </motion.div>
-          </div>
-        </section>
 
-        {/* Mission & Values - Right Image, Left Content */}
-        <section className="relative py-24 px-4 ">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="space-y-7"
-            >
-              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-                Our Mission & Values
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
-                {values.map((value, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: index * 0.1, duration: 0.7 }}
-                    viewport={{ once: true }}
-                    className="bg-gradient-to-br from-zinc-800/80 to-zinc-900/90 border border-lime-400/20 rounded-2xl p-6 text-center hover:shadow-lime-400/20 hover:shadow-xl transition-all duration-300"
-                  >
-                    <div className="flex justify-center mb-3">{value.icon}</div>
-                    <h3 className="text-lg font-bold text-lime-300 mb-2">{value.title}</h3>
-                    <p className="text-lime-100/80 text-sm">{value.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative h-96 rounded-3xl overflow-hidden border-2 border-lime-400/40 shadow-2xl"
-            >
-              <Image
-                src="/about-values.jpg"
-                alt="BM Computers Values"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Why Choose Us - Left Content, Right Image Grid */}
-        <section className="relative py-24 px-4">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="space-y-7"
-            >
-              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-                Why Choose BM Computers?
-              </h2>
-              <ul className="space-y-5 mt-6">
-                <li className="flex items-start">
-                  <span className="bg-lime-500/20 p-2 rounded-lg mr-4 mt-1">
-                    <span className="w-2 h-2 rounded-full bg-lime-400 block"></span>
-                  </span>
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Wide range of modern computer solutions</h4>
-                    <p className="text-lime-100/80">From gaming rigs to professional workstations</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-lime-500/20 p-2 rounded-lg mr-4 mt-1">
-                    <span className="w-2 h-2 rounded-full bg-lime-400 block"></span>
-                  </span>
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Expert advice from professionals</h4>
-                    <p className="text-lime-100/80">Our team stays updated with the latest tech trends</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-lime-500/20 p-2 rounded-lg mr-4 mt-1">
-                    <span className="w-2 h-2 rounded-full bg-lime-400 block"></span>
-                  </span>
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Customer-first support & guidance</h4>
-                    <p className="text-lime-100/80">We prioritize your needs and budget</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <span className="bg-lime-500/20 p-2 rounded-lg mr-4 mt-1">
-                    <span className="w-2 h-2 rounded-full bg-lime-400 block"></span>
-                  </span>
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Trusted by hundreds of happy clients</h4>
-                    <p className="text-lime-100/80">Join our growing community of satisfied customers</p>
-                  </div>
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-2 gap-5"
-            >
-              <div className="relative h-56 rounded-2xl overflow-hidden border border-lime-400/30">
-                <Image
-                  src="/products/gaming-pc.webp"
-                  alt="Gaming PC"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative h-56 rounded-2xl overflow-hidden border border-lime-400/30">
-                <Image
-                  src="/products/laptop.webp"
-                  alt="Laptop"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative h-56 rounded-2xl overflow-hidden border border-lime-400/30">
-                <Image
-                  src="/products/keyboard.webp"
-                  alt="Keyboard"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="relative h-56 rounded-2xl overflow-hidden border border-lime-400/30">
-                <Image
-                  src="/products/monitor.webp"
-                  alt="Monitor"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Store Experience - Full Width Image with Overlay */}
-        <section className="relative py-24 px-4">
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden border-2 border-lime-400/30 h-96"
-            >
-              <Image
-                src="/store-experience.jpg"
-                alt="BM Computers Store Experience"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-900/80 to-transparent flex items-end justify-center pb-12">
-                <div className="text-center px-4">
-                  <h2 className="text-3xl md:text-4xl font-bold text-lime-300 mb-4">
-                    Step into BM Computers and experience technology like never before.
-                  </h2>
-                  <p className="text-xl text-lime-100/90 max-w-2xl mx-auto">
-                    Our store is designed to give you hands-on experience with the latest technology in a comfortable, welcoming environment.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* New Section: Our Services - Right Image, Left Content */}
-        <section className="relative py-24 px-4 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950">
-          <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="space-y-7"
-            >
-              <h2 className="text-4xl font-extrabold bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-                What We Offer
-              </h2>
-              <ul className="space-y-5 mt-6">
-                <li className="flex items-start">
-                  <FaStore className="text-lime-400 text-2xl mr-4 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Retail & Custom Builds</h4>
-                    <p className="text-lime-100/80">Latest laptops, desktops, and custom gaming PCs tailored to your needs.</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <FaAward className="text-lime-400 text-2xl mr-4 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Certified Repairs</h4>
-                    <p className="text-lime-100/80">Expert repair services for all major brands and devices.</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <FaHandshake className="text-lime-400 text-2xl mr-4 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Business Solutions</h4>
-                    <p className="text-lime-100/80">IT consulting, networking, and managed services for organizations.</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <FaUsers className="text-lime-400 text-2xl mr-4 mt-1" />
-                  <div>
-                    <h4 className="text-lg font-semibold text-lime-300">Workshops & Training</h4>
-                    <p className="text-lime-100/80">Empowering the community with the latest tech knowledge.</p>
-                  </div>
-                </li>
-              </ul>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative h-96 rounded-3xl overflow-hidden border-2 border-lime-400/40 shadow-2xl"
-            >
-              <Image
-                src="/about-services.jpg"
-                alt="BM Computers Services"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 to-transparent"></div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Team Section */}
-        <section className="relative py-24 px-4 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950">
-          <div className="max-w-7xl mx-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="text-4xl font-extrabold text-center mb-16"
-            >
-              <span className="bg-gradient-to-r from-lime-300 via-lime-400 to-lime-500 bg-clip-text text-transparent">
-                Meet Our Experts
-              </span>
-            </motion.h2>
-            <div className="grid md:grid-cols-3 gap-10">
-              {team.map((member, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.7 }}
-                  viewport={{ once: true }}
-                  className="bg-gradient-to-br from-zinc-800/80 to-zinc-900/90 border border-lime-400/20 rounded-2xl p-8 text-center hover:shadow-lime-400/20 hover:shadow-xl transition-all duration-300"
-                >
-                  <div className="relative w-32 h-32 mx-auto mb-6 rounded-full overflow-hidden border-2 border-lime-400/40">
-                    <Image
-                      src={member.img}
-                      alt={member.name}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <h3 className="text-xl font-bold text-lime-300 mb-2">{member.name}</h3>
-                  <p className="text-lime-400/80 mb-4">{member.role}</p>
-                  <p className="text-lime-100/80 text-sm">
-                    {member.role === "Founder & CEO"
-                      ? "With over 20 years in the industry, Bharat leads our vision for innovation and customer satisfaction."
-                      : member.role === "Sales Manager"
-                        ? "Priya ensures our customers find the perfect solutions for their computing needs."
-                        : "Ankit brings technical expertise and passion for solving complex computing challenges."}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Call to Action Section */}
-        <section className="relative py-24 px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="max-w-4xl mx-auto text-center bg-gradient-to-br from-zinc-800/90 to-zinc-900/90 border border-lime-400/30 rounded-3xl p-12 md:p-16 backdrop-blur-sm"
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl md:text-5xl lg:text-5xl/tight xl:text-5xl/tight font-extrabold mb-6"
           >
-            <h2 className="text-3xl md:text-4xl font-extrabold text-lime-300 mb-6">
-              Visit BM Computers Today
-            </h2>
-            <p className="text-xl text-lime-100/90 mb-8 max-w-2xl mx-auto">
-              Discover modern computing, guided by experts who care about your needs.
+            <span className="bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent">
+              About BM Computers
+            </span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-xl text-lime-100/90 max-w-3xl mx-auto"
+          >
+            Your trusted partner in technology since 2010, delivering cutting-edge computing solutions with expertise and passion.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          {/* Our Story */}
+          <div
+            className={`
+              relative overflow-hidden rounded-3xl border bg-gradient-to-br from-zinc-950/80 via-zinc-800/80 to-zinc-950/80 border-lime-400
+              shadow-lg
+              backdrop-blur-sm
+              p-8
+              transition-all duration-300
+              z-10
+            `}
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(15,20,8,0.70) 0%, rgba(40,60,15,0.65) 60%, rgba(15,15,15,0.70) 100%)",
+              boxShadow:
+                "0 8px 32px 0 rgba(50, 255, 100, 0.10), 0 1.5px 8px 0 rgba(163, 230, 53, 0.10)",
+              border: "1.5px solid #a3e635",
+            }}
+          >
+            <p className="text-lime-300 text-xs font-semibold mb-2 tracking-wider uppercase drop-shadow">
+              OUR JOURNEY
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="px-8 py-4 rounded-full bg-gradient-to-r from-lime-400 via-lime-500 to-lime-600 text-zinc-900 font-bold shadow-lg hover:from-lime-500 hover:to-lime-400 transition-all duration-200 text-lg"
-              >
-                Contact Us
-              </a>
-              <a
-                href="https://maps.google.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-8 py-4 rounded-full bg-transparent border-2 border-lime-400 text-lime-300 font-bold shadow-lg hover:bg-lime-400/10 transition-all duration-200 text-lg"
-              >
-                Get Directions
-              </a>
+            <h2 className="text-3xl font-extrabold leading-snug mb-4 bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent drop-shadow-lg">
+              Our Story
+            </h2>
+            <p className="text-base mb-4 leading-relaxed font-medium text-lime-100/90">
+              Founded in 2010, BM Computers began as a small local shop with a big vision: to make cutting-edge technology accessible to everyone. What started as a passion project between friends has grown into a trusted technology partner for thousands of customers.
+            </p>
+            <p className="text-base mb-4 leading-relaxed font-medium text-lime-100/90">
+              Over the years, we've stayed true to our core values of quality, expertise, and customer service. We've adapted to the rapidly changing tech landscape while maintaining our commitment to providing personalized solutions that meet our customers' unique needs.
+            </p>
+            <p className="text-base leading-relaxed font-medium text-lime-100/90">
+              Today, we're proud to serve both individual enthusiasts and business clients, offering everything from custom-built gaming rigs to enterprise-level computing solutions.
+            </p>
+          </div>
+
+          {/* Mission & Values */}
+          <div
+            className={`
+              relative overflow-hidden rounded-3xl border bg-gradient-to-br from-zinc-950/80 via-zinc-800/80 to-zinc-950/80 border-lime-400
+              shadow-lg
+              backdrop-blur-sm
+              p-8
+              transition-all duration-300
+              z-10
+            `}
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(15,20,8,0.70) 0%, rgba(40,60,15,0.65) 60%, rgba(15,15,15,0.70) 100%)",
+              boxShadow:
+                "0 8px 32px 0 rgba(50, 255, 100, 0.10), 0 1.5px 8px 0 rgba(163, 230, 53, 0.10)",
+              border: "1.5px solid #a3e635",
+            }}
+          >
+            <p className="text-lime-300 text-xs font-semibold mb-2 tracking-wider uppercase drop-shadow">
+              OUR CORE
+            </p>
+            <h2 className="text-3xl font-extrabold leading-snug mb-4 bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent drop-shadow-lg">
+              Mission & Values
+            </h2>
+            <div className="mb-6">
+              <h3 className="text-lime-300 font-bold text-lg mb-2">Our Mission</h3>
+              <p className="text-base leading-relaxed font-medium text-lime-100/90">
+                To empower individuals and businesses with reliable, high-performance computing solutions that enhance productivity, creativity, and entertainment.
+              </p>
             </div>
-          </motion.div>
-        </section>
-      </main>
-    </>
+            <div>
+              <h3 className="text-lime-300 font-bold text-lg mb-2">Our Values</h3>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="inline-block w-3 h-3 rounded-full bg-gradient-to-br from-lime-400 to-lime-500 shadow mt-1.5 flex-shrink-0" />
+                  <span className="font-medium text-lime-100/90"><span className="font-semibold text-lime-300">Expertise:</span> Continuous learning to provide informed recommendations</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="inline-block w-3 h-3 rounded-full bg-gradient-to-br from-lime-400 to-lime-500 shadow mt-1.5 flex-shrink-0" />
+                  <span className="font-medium text-lime-100/90"><span className="font-semibold text-lime-300">Quality:</span> Only genuine products with verified performance</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="inline-block w-3 h-3 rounded-full bg-gradient-to-br from-lime-400 to-lime-500 shadow mt-1.5 flex-shrink-0" />
+                  <span className="font-medium text-lime-100/90"><span className="font-semibold text-lime-300">Service:</span> Personalized support before, during, and after purchase</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="inline-block w-3 h-3 rounded-full bg-gradient-to-br from-lime-400 to-lime-500 shadow mt-1.5 flex-shrink-0" />
+                  <span className="font-medium text-lime-100/90"><span className="font-semibold text-lime-300">Innovation:</span> Staying ahead of technology trends to offer cutting-edge solutions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Why Choose Us */}
+        <div
+          className={`
+            relative overflow-hidden rounded-3xl border bg-gradient-to-br from-zinc-950/80 via-zinc-800/80 to-zinc-950/80 border-lime-400
+            shadow-lg
+            backdrop-blur-sm
+            p-8 mb-16
+            transition-all duration-300
+            z-10
+          `}
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(15,20,8,0.70) 0%, rgba(40,60,15,0.65) 60%, rgba(15,15,15,0.70) 100%)",
+            boxShadow:
+              "0 8px 32px 0 rgba(50, 255, 100, 0.10), 0 1.5px 8px 0 rgba(163, 230, 53, 0.10)",
+            border: "1.5px solid #a3e635",
+          }}
+        >
+          <p className="text-lime-300 text-xs font-semibold mb-2 tracking-wider uppercase drop-shadow">
+            WHY WE STAND OUT
+          </p>
+          <h2 className="text-3xl font-extrabold leading-snug mb-8 bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent drop-shadow-lg">
+            Why Choose BM Computers
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="flex items-start gap-4">
+              <div className="bg-lime-500/10 p-3 rounded-lg flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lime-300 font-bold text-lg mb-2">Expert Custom Builds</h3>
+                <p className="text-lime-100/90">Our technicians hand-assemble each system with precision, ensuring optimal performance and compatibility for your specific needs.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="bg-lime-500/10 p-3 rounded-lg flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lime-300 font-bold text-lg mb-2">Quality Assurance</h3>
+                <p className="text-lime-100/90">Every product undergoes rigorous testing to ensure reliability and performance, backed by comprehensive warranties.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="bg-lime-500/10 p-3 rounded-lg flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lime-300 font-bold text-lg mb-2">Personalized Service</h3>
+                <p className="text-lime-100/90">We take time to understand your requirements and provide tailored recommendations, not just sales pitches.</p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4">
+              <div className="bg-lime-500/10 p-3 rounded-lg flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lime-300 font-bold text-lg mb-2">After-Sales Support</h3>
+                <p className="text-lime-100/90">Our relationship doesn't end at purchase. We provide ongoing support, maintenance, and upgrade services.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bulk Dealing & Multi-Branded Store Section */}
+        <div
+          className={`
+            relative overflow-hidden rounded-3xl border bg-gradient-to-br from-zinc-950/80 via-zinc-800/80 to-zinc-950/80 border-lime-400
+            shadow-lg
+            backdrop-blur-sm
+            p-8
+            transition-all duration-300
+            z-10
+          `}
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(15,20,8,0.70) 0%, rgba(40,60,15,0.65) 60%, rgba(15,15,15,0.70) 100%)",
+            boxShadow:
+              "0 8px 32px 0 rgba(50, 255, 100, 0.10), 0 1.5px 8px 0 rgba(163, 230, 53, 0.10)",
+            border: "1.5px solid #a3e635",
+          }}
+        >
+          <p className="text-lime-300 text-xs font-semibold mb-2 tracking-wider uppercase drop-shadow">
+            MULTI-BRANDED STORE & BULK DEALING
+          </p>
+          <h2 className="text-3xl font-extrabold leading-snug mb-8 bg-gradient-to-r from-white via-lime-200 to-lime-400 bg-clip-text text-transparent drop-shadow-lg">
+            Your One-Stop Tech Destination
+          </h2>
+
+          <p className="text-base mb-8 leading-relaxed font-medium text-lime-100/90 max-w-3xl">
+            BM Computers is a leading multi-branded technology store, offering the latest and widest range of computers, laptops, accessories, and tech products from all major brands. Whether you are an individual, a business, or a reseller, we provide bulk deals and customized solutions to meet every requirement. Our store is your trusted source for genuine products, competitive pricing, and the newest innovations in the tech world.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Bulk Deals */}
+            <div className="bg-zinc-800/50 rounded-xl p-4 border border-lime-400/20 flex flex-col items-center text-center">
+              <div className="w-20 h-20 mb-4 rounded-full bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+                </svg>
+              </div>
+              <h3 className="text-lime-300 font-bold mb-1">Bulk Dealing</h3>
+              <p className="text-lime-100/70 text-sm mb-3">Special pricing and support for bulk orders, resellers, and corporate clients.</p>
+              <p className="text-lime-100/90 text-xs">Get the best deals for large quantity purchases and business needs.</p>
+            </div>
+
+            {/* Multi-Branded Selection */}
+            <div className="bg-zinc-800/50 rounded-xl p-4 border border-lime-400/20 flex flex-col items-center text-center">
+              <div className="w-20 h-20 mb-4 rounded-full bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                </svg>
+              </div>
+              <h3 className="text-lime-300 font-bold mb-1">Multi-Branded Store</h3>
+              <p className="text-lime-100/70 text-sm mb-3">All top brands under one roof: laptops, desktops, peripherals, and more.</p>
+              <p className="text-lime-100/90 text-xs">Choose from a wide range of genuine products from trusted manufacturers.</p>
+            </div>
+
+            {/* Latest Tech & New Products */}
+            <div className="bg-zinc-800/50 rounded-xl p-4 border border-lime-400/20 flex flex-col items-center text-center">
+              <div className="w-20 h-20 mb-4 rounded-full bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+                </svg>
+              </div>
+              <h3 className="text-lime-300 font-bold mb-1">Latest Products</h3>
+              <p className="text-lime-100/70 text-sm mb-3">Stay ahead with the newest launches and cutting-edge technology.</p>
+              <p className="text-lime-100/90 text-xs">We update our inventory regularly with the latest in tech.</p>
+            </div>
+
+            {/* Complete Tech Solutions */}
+            <div className="bg-zinc-800/50 rounded-xl p-4 border border-lime-400/20 flex flex-col items-center text-center">
+              <div className="w-20 h-20 mb-4 rounded-full bg-gradient-to-br from-lime-400 to-lime-600 flex items-center justify-center">
+                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 17v-2a4 4 0 018 0v2M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-lime-300 font-bold mb-1">All Things Tech</h3>
+              <p className="text-lime-100/70 text-sm mb-3">From computers to accessories, networking, and more—find everything you need.</p>
+              <p className="text-lime-100/90 text-xs">Your one-stop shop for all technology products and solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

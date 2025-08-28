@@ -4,48 +4,47 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 const productSections = [
-  // ... (same as before, omitted for brevity)
-  // keep the productSections array unchanged
+
   {
     title: "PCs & Laptops",
     products: [
       {
-        image: '/products/desktop-pc.webp',
+        image: '/products/p-normal-pc.webp',
         name: "Desktop PCs",
         description: "Desktops for home and office use.",
       },
       {
-        image: '/products/gaming-pc.webp',
+        image: '/products/p-gaming-pc.webp',
         name: "Gaming PCs",
         description: "High-performance PCs for gaming.",
       },
       {
-        image: '/products/laptop.webp',
+        image: '/products/p-laptop.webp',
         name: "Laptops",  
         description: "Portable laptops for work or play.",
       },
       {
-        image: '/products/mini-pc.webp',
+        image: '/products/p-mini-pc.webp',
         name: "Mini PCs",
         description: "Compact PCs for small spaces.",
       },
       {
-        image: '/products/workstation-pc.webp',
+        image: '/products/p-workstation-pc.webp',
         name: "Workstations",
         description: "Powerful PCs for professionals.",
       },
       {
-        image: '/products/all-in-one.webp',
+        image: '/products/p-all-in-one.webp',
         name: "All-in-One PCs",
         description: "All-in-one computers for any desk.",
       },
       {
-        image: '/products/thin-pc.webp',
+        image: '/products/p-thin-pc.webp',
         name: "Thin Clients",
         description: "Efficient clients for business.",
       },
       {
-        image: '/products/berbone.webp',
+        image: '/products/p-borebone.webp',
         name: "Barebone PCs",
         description: "DIY kits for custom builds.",
       },
@@ -56,42 +55,42 @@ const productSections = [
     title: "Peripherals",
     products: [
       {
-        image: '/products/mouse.webp',
+        image: '/products/p-mice.webp',
         name: "Mice",
         description: "Wired and wireless mice.",
       },
       {
-        image: '/products/keyboard.webp',
+        image: '/products/p-keyboard.webp',
         name: "Keyboards",
         description: "Mechanical and standard keyboards.",
       },
       {
-        image: '/products/headphone.webp',
+        image: '/products/p-headphone.webp',
         name: "Headphones & Headsets",
         description: "Audio for gaming and calls.",
       },
       {
-        image: '/products/speakers.webp',
+        image: '/products/p-speaker.webp',
         name: "Speakers",
         description: "Speakers for music and movies.",
       },
       {
-        image: '/products/webcam.webp',
+        image: '/products/p-webcam.webp',
         name: "Webcams",
         description: "HD webcams for video calls.",
       },
       {
-        image: '/products/microphone.webp',
+        image: '/products/p-mic.webp',
         name: "Microphones",
         description: "Mics for streaming and meetings.",
       },
       {
-        image: '/products/ups.webp',
+        image: '/products/p-ups.webp',
         name: "UPS & Power Backup",
         description: "Power backup for your devices.",
       },
       {
-        image: '/products/mousepad.webp',
+        image: '/products/p-pad.webp',
         name: "Mousepads",
         description: "Smooth mousepads for any desk.",
       },
@@ -101,42 +100,42 @@ const productSections = [
     title: "Components",
     products: [
       {
-        image: '/products/processor.webp',
+        image: '/products/p-processor.webp',
         name: "Processors (CPU)",
         description: "Intel & AMD CPUs for all needs.",
       },
       {
-        image: '/products/graphic-card.webp',
+        image: '/products/p-graphic.webp',
         name: "Graphic Cards",
         description: "GPUs for gaming and design.",
       },
       {
-        image: '/products/ram.webp',
+        image: '/products/p-ram.webp',
         name: "RAM (Memory)",
         description: "DDR4 & DDR5 memory modules.",
       },
       {
-        image: '/products/motherboard.webp',
+        image: '/products/p-motherboard.webp',
         name: "Motherboards",
         description: "Boards for Intel & AMD CPUs.",
       },
       {
-        image: '/products/psu.webp',
+        image: '/products/p-psu.webp',
         name: "Power Supplies (PSU)",
         description: "Reliable power for your PC.",
       },
       {
-        image: '/products/cpu-fan.webp',
+        image: '/products/p-cpu-fan.webp',
         name: "CPU Coolers",
         description: "Air and liquid CPU coolers.",
       },
       {
-        image: '/products/cabinate.webp',
+        image: '/products/p-cabinate.webp',
         name: "Cabinets & Cases",
         description: "PC cases in all sizes.",
       },
       {
-        image: '/products/case-fan.webp',
+        image: '/products/p-case-fan.webp',
         name: "Case Fans",
         description: "Fans for cooling and airflow.",
       },
@@ -146,42 +145,42 @@ const productSections = [
     title: "Storage & Drives",
     products: [
       {
-        image: '/products/storage.webp',
+        image: '/products/p-hdd.webp',
         name: "Storage (SSD/HDD)",
         description: "SSDs and HDDs for storage.",
       },
       {
-        image: '/products/nvme.webp',
+        image: '/products/p-nvme.webp',
         name: "NVMe Drives",
         description: "Fast NVMe SSDs.",
       },
       {
-        image: '/products/external-drive.webp',
+        image: '/products/p-ex-drive.webp',
         name: "External Hard Drives",
         description: "Portable drives for backup.",
       },
       {
-        image: '/products/pendrive.webp',
+        image: '/products/p-pendrive.webp',
         name: "Pen Drives",
         description: "USB flash drives.",
       },
       {
-        image: '/products/memory-card.webp',
+        image: '/products/p-memory.webp',
         name: "Memory Cards",
         description: "SD and microSD cards.",
       },
       {
-        image: '/products/optical-drive.webp',
+        image: '/products/p-optical-drive.webp',
         name: "Optical Drives",
         description: "DVD and Blu-ray drives.",
       },
       {
-        image: '/products/raid-controller.webp',
+        image: '/products/p-raid.webp',
         name: "RAID Controllers",
         description: "Cards for RAID storage.",
       },
       {
-        image: '/products/docking-station.webp',
+        image: '/products/p-docking-station.webp',
         name: "Docking Stations",
         description: "Docks for drives and devices.",
       },
@@ -191,42 +190,42 @@ const productSections = [
     title: "Displays & Graphics",
     products: [
       {
-        image: '/products/monitor.webp',
+        image: '/products/p-monitor.webp',
         name: "Monitors",
         description: "HD and 4K monitors.",
       },
       {
-        image: '/products/projector.webp',
+        image: '/products/p-projector.webp',
         name: "Projectors",
         description: "Projectors for home or office.",
       },
       {
-        image: '/products/graphic-tablet.webp',
+        image: '/products/p-graphic-tablet.webp',
         name: "Graphics Tablets",
         description: "Tablets for drawing and design.",
       },
       {
-        image: '/products/vr-headset.webp',
+        image: '/products/p-vr-headset.webp',
         name: "VR Headsets",
         description: "Virtual reality headsets.",
       },
       {
-        image: '/products/display-adaptor.webp',
+        image: '/products/p-display-adaptor.webp',
         name: "Display Adapters",
         description: "HDMI, DP, VGA adapters.",
       },
       {
-        image: '/products/screen-splitter.webp',
+        image: '/products/p-splitter.webp',
         name: "Screen Splitters",
         description: "Splitters for multi-displays.",
       },
       {
-        image: '/products/monitor-mount.webp',
+        image: '/products/p-mount.webp',
         name: "Monitor Mounts",
         description: "Arms and wall mounts.",
       },
       {
-        image: '/products/monitor-hoods.webp',
+        image: '/products/p-monitor-hoods.webp',
         name: "Monitor Hoods",
         description: "Reduce glare on screens.",
       },
@@ -236,32 +235,32 @@ const productSections = [
     title: "Networking",
     products: [
       {
-        image: '/products/router.webp',
+        image: '/products/p-router.webp',
         name: "Routers",
         description: "Wi-Fi and wired routers.",
       },
       {
-        image: '/products/network-switch.webp',
+        image: '/products/p-switch.webp',
         name: "Network Switches",
         description: "Switches for network expansion.",
       },
       {
-        image: '/products/lan-card.webp',
+        image: '/products/p-lan-card.webp',
         name: "LAN Cards",
         description: "Ethernet cards for PCs.",
       },
       {
-        image: '/products/wifi-adaptor.webp',
+        image: '/products/p-wifi.webp',
         name: "Wi-Fi Adapters",
         description: "USB and PCIe Wi-Fi adapters.",
       },
       {
-        image: '/products/range-extender.webp',
+        image: '/products/p-range.webp',
         name: "Range Extenders",
         description: "Boost Wi-Fi coverage.",
       },
       {
-        image: '/products/wifi-cable.webp',
+        image: '/products/p-cable.webp',
         name: "Network Cables",
         description: "CAT5e, CAT6, CAT7 cables.",
       },
@@ -271,7 +270,7 @@ const productSections = [
         description: "NAS for shared storage.",
       },
       {
-        image: '/products/firewall-device.webp',
+        image: '/products/p-firewall.webp',
         name: "Firewalls",
         description: "Hardware for network security.",
       },
@@ -286,7 +285,7 @@ const productSections = [
         description: "Hubs, readers, and more.",
       },
       {
-        image: '/products/connectors.webp',
+        image: '/products/p-connector.webp',
         name: "Cables & Connectors",
         description: "Cables and adapters.",
       },
@@ -296,27 +295,27 @@ const productSections = [
         description: "Kits for device cleaning.",
       },
       {
-        image: '/products/laptop-bag.webp',
+        image: '/products/p-bag.webp',
         name: "Laptop Bags",
         description: "Bags for laptops and tablets.",
       },
       {
-        image: '/products/laptop-stand.webp',
+        image: '/products/p-stand.webp',
         name: "Stands & Holders",
         description: "Stands for laptops and phones.",
       },
       {
-        image: '/products/surge-protector.webp',
+        image: '/products/p-surge-protector.webp',
         name: "Surge Protectors",
         description: "Protect from power surges.",
       },
       {
-        image: '/products/thermal-paste.webp',
+        image: '/products/p-paste.webp',
         name: "Thermal Paste",
         description: "Paste for CPU cooling.",
       },
       {
-        image: '/products/label-printer.webp',
+        image: '/products/p-label-printer.webp',
         name: "Label Printers",
         description: "Printers for easy labeling.",
       },
@@ -326,42 +325,42 @@ const productSections = [
     title: "Software & Services",
     products: [
       {
-        image: '/products/os.webp',
+        image: '/products/p-soft-os.webp',
         name: "Operating Systems",
         description: "Windows, Linux, and more.",
       },
       {
-        image: '/products/antivirus.webp',
+        image: '/products/p-soft-av.webp',
         name: "Antivirus & Security",
         description: "Security software for devices.",
       },
       {
-        image: '/products/office-suite.webp',
+        image: '/products/p-soft-office.webp',
         name: "Office Suites",
         description: "Productivity software.",
       },
       {
-        image: '/products/backup-software.webp',
+        image: '/products/p-soft-back.webp',
         name: "Backup Solutions",
         description: "Backup and recovery tools.",
       },
       {
-        image: '/products/graphic-software.webp',
+        image: '/products/p-soft-graphic.webp',
         name: "Graphics & Design",
         description: "Software for design work.",
       },
       {
-        image: '/products/accounting-software.webp',
+        image: '/products/p-soft-tally.webp',
         name: "Accounting Software",
         description: "Software for business finance.",
       },
       {
-        image: '/products/remote-tool.webp',
+        image: '/products/p-remote.webp',
         name: "Remote Access Tools",
         description: "Remote access software.",
       },
       {
-        image: '/products/license-key.webp',
+        image: '/products/p-soft-key.webp',
         name: "Software Licenses",
         description: "Genuine software licenses.",
       },

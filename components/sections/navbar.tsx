@@ -10,7 +10,6 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Gamming Hub", href: "/gamming-hub" },
 ];
 
 function getCurrentPath() {
@@ -112,8 +111,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`${
                       isActive(link.href)
-                        ? "bg-lime-50 rounded-full  border border-lime-600 text-lime-600 font-bold"
-                        : "text-gray-100 bg-lime-950 rounded-full border border-lime-400/30 hover:text-lime-300"
+                      ? "bg-lime-50 rounded-full  border border-lime-600 text-lime-600 font-bold"
+                      : "text-gray-100 bg-lime-950 rounded-full border border-lime-400/30 hover:text-lime-300"
                       } px-3 py-1 rounded transition font-medium`}
                   >
                     {link.name}
@@ -234,8 +233,8 @@ export default function Navbar() {
               href={link.href}
               className={`${
                 isActive(link.href)
-                  ? "bg-lime-100 text-lime-700 font-semibold"
-                  : "text-gray-800 hover:text-lime-700"
+                ? "bg-lime-100 text-lime-700 font-semibold"
+                : "text-gray-800 hover:text-lime-700"
                 } px-3 py-2 rounded transition font-medium`}
               onClick={() => setSidebarOpen(false)}
             >

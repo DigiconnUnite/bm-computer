@@ -103,7 +103,7 @@ export default function MarqueeSlider({
             transform: translateX(0%);
           }
         }
-        /* Lime-400 colorize for SVGs (for black SVGs) */
+        /* lime-400 colorize for SVGs (for black SVGs) */
         .svg-colorize {
           /* lime-400: #a3e635 */
           filter: invert(81%) sepia(97%) saturate(749%) hue-rotate(24deg) brightness(97%) contrast(92%);

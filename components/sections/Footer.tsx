@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import {
   Facebook,
   Twitter,
@@ -33,11 +32,9 @@ export default function Footer() {
       links: [
         { name: 'About Us', href: '/about' },
         { name: 'Products', href: '/product' },
-        { name: 'Gaming Hub', href: '/gaming-hub' },
         { name: 'Contact', href: '/contact' },
       ],
     },
-    // Address/Contact section instead of Resources
     {
       title: 'Information',
       links: [
@@ -89,19 +86,13 @@ export default function Footer() {
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CiAgPGcgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBvcGFjaXR5PSIwLjA1Ij4KICAgIDxjaXJjbGUgZmlsbD0iI0ZGRiIgY3g9IjMwIiBjeT0iMzAiIHI9IjEiLz4KICA8L2c+Cjwvc3ZnPg==')] opacity-20"></div>
 
-      {/* Lime gradient strip */}
+      {/* lime gradient strip */}
       <div className="h-1 w-full bg-gradient-to-r from-lime-500 to-lime-400" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-20 pb-10 relative z-10">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
           {/* Brand & Social */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="flex-1 flex flex-col justify-between"
-          >
+          <div className="flex-1 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <span className="inline-block w-10 h-10 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg shadow-lime-500/30">
@@ -130,29 +121,25 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex gap-3 mt-2">
               {socialLinks.map(({ icon: Icon, href, label }, i) => (
-                <motion.a
+                <a
                   key={label}
                   href={href}
-                  whileHover={{ scale: 1.15, y: -3, boxShadow: '0 8px 30px rgba(101, 163, 13, 0.3)' }}
-                  whileTap={{ scale: 0.95 }}
                   className="w-11 h-11 bg-zinc-800/80 backdrop-blur-sm hover:bg-gradient-to-br hover:from-lime-500 hover:to-lime-400 rounded-full flex items-center justify-center transition-all duration-300 hover:text-black group shadow-lg border border-zinc-700/50"
                   aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <Icon className="w-5 h-5 group-hover:scale-125 group-hover:text-black text-lime-400 transition-transform duration-300" />
-                </motion.a>
+                </a>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Links Sections */}
           <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {footerLinks.map((section, idx) => (
-              <motion.div
+              <div
                 key={section.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1 + idx * 0.1 }}
-                viewport={{ once: true }}
                 className="min-w-[160px]"
               >
                 <h4 className="text-lg md:text-xl font-bold text-lime-400 mb-5 tracking-wide flex items-center gap-2 font-display border-b-2 border-lime-500 pb-1 w-fit">
@@ -161,20 +148,19 @@ export default function Footer() {
                 <ul className="space-y-3">
                   {section.links.map((link, i) => (
                     <li key={typeof link.name === 'string' ? link.name : i}>
-                      <motion.a
+                      <a
                         href={link.href}
-                        whileHover={{ x: 5, color: '#84cc16' }}
                         className="text-zinc-300 font-semibold text-sm transition-all duration-300 flex items-center gap-2 hover:text-lime-400 group"
                         target={link.href?.startsWith('http') || link.href?.startsWith('mailto') || link.href?.startsWith('tel') ? '_blank' : undefined}
                         rel={link.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
                         <span className="w-1 h-1 bg-lime-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         {link.name}
-                      </motion.a>
+                      </a>
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -184,27 +170,15 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className="text-zinc-400 text-center text-sm font-semibold"
-          >
+          <div className="text-zinc-400 text-center text-sm font-semibold">
             <span className="block md:inline">
-              © {new Date().getFullYear()} <span className="font-semibold text-lime-400">BM computers</span>. All rights reserved.
+              © {new Date().getFullYear()} <span className="font-semibold text-lime-400">BM COMPUTERS AGRA</span>. All rights reserved.
             </span>
             <span className="hidden md:inline mx-2 text-lime-700">|</span>
-          </motion.div>
+          </div>
 
           {/* Developer Credit Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-xs md:text-sm text-zinc-400 font-semibold text-center"
-          >
+          <div className="text-xs md:text-sm text-zinc-400 font-semibold text-center">
             Developed by{' '}
             <a
               href="https://digiconnunite.com"
@@ -214,7 +188,7 @@ export default function Footer() {
             >
               Digiconn Unite Pvt Ltd
             </a>
-          </motion.div>
+          </div>
 
           <div className="text-sm font-semibold text-zinc-400">
             <a href="#" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Privacy Policy</a>
@@ -225,15 +199,14 @@ export default function Footer() {
       </div>
 
       {/* Scroll to top button */}
-      <motion.button
+      <button
         onClick={scrollToTop}
-        whileHover={{ scale: 1.1, y: -5, boxShadow: '0 8px 25px rgba(101, 163, 13, 0.4)' }}
-        whileTap={{ scale: 0.95 }}
-        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg shadow-lime-500/30 border border-lime-400/30 backdrop-blur-sm"
+        className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg shadow-lime-500/30 border border-lime-400/30 backdrop-blur-sm transition-transform duration-200 hover:scale-110 hover:-translate-y-1"
         aria-label="Scroll to top"
+        type="button"
       >
         <ArrowUp className="w-6 h-6 text-black" />
-      </motion.button>
+      </button>
     </footer>
   );
 }

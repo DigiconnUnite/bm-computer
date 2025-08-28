@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion, AnimatePresence, px } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Eye, ChevronRight } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,55 +17,55 @@ import {
 import Background from "@/components/ui/Backround";
 import MarqueeSlider from "@/components/sections/marqueeSlider";
 
-// Updated product sections with the provided data
 const productSections = [
+
   {
     title: "PCs & Laptops",
     products: [
       {
-        src: '/products/desktop-pc.png',
+        src: '/products/p-normal-pc.webp',
         alt: "Desktop PCs",
         title: "Desktop PCs",
         category: "Computers",
       },
       {
-        src: '/products/gaming-pc.webp',
+        src: '/products/p-gaming-pc.webp',
         alt: "Gaming PCs",
         title: "Gaming PCs",
         category: "Gaming",
       },
       {
-        src: '/products/laptop.webp',
+        src: '/products/p-laptop.webp',
         alt: "Laptops",
         title: "Laptops",
         category: "Portable",
       },
       {
-        src: '/products/mini-pc.webp',
+        src: '/products/p-mini-pc.webp',
         alt: "Mini PCs",
         title: "Mini PCs",
         category: "Compact",
       },
       {
-        src: '/products/workstation-pc.webp',
+        src: '/products/p-workstation-pc.webp',
         alt: "Workstations",
         title: "Workstations",
         category: "Professional",
       },
       {
-        src: '/products/all-in-one.webp',
+        src: '/products/p-all-in-one.webp',
         alt: "All-in-One PCs",
         title: "All-in-One PCs",
         category: "All-in-One",
       },
       {
-        src: '/products/thin-pc.webp',
+        src: '/products/p-thin-pc.webp',
         alt: "Thin Clients",
         title: "Thin Clients",
         category: "Business",
       },
       {
-        src: '/products/berbone.webp',
+        src: '/products/p-borebone.webp',
         alt: "Barebone PCs",
         title: "Barebone PCs",
         category: "DIY",
@@ -76,49 +76,49 @@ const productSections = [
     title: "Peripherals",
     products: [
       {
-        src: '/products/mouse.webp',
+        src: '/products/p-mice.webp',
         alt: "Mice",
         title: "Mice",
         category: "Input",
       },
       {
-        src: '/products/keyboard.webp',
+        src: '/products/p-keyboard.webp',
         alt: "Keyboards",
         title: "Keyboards",
         category: "Input",
       },
       {
-        src: '/products/headphone.webp',
+        src: '/products/p-headphone.webp',
         alt: "Headphones & Headsets",
         title: "Headphones & Headsets",
         category: "Audio",
       },
       {
-        src: '/products/speakers.webp',
+        src: '/products/p-speaker.webp',
         alt: "Speakers",
         title: "Speakers",
         category: "Audio",
       },
       {
-        src: '/products/webcam.webp',
+        src: '/products/p-webcam.webp',
         alt: "Webcams",
         title: "Webcams",
         category: "Video",
       },
       {
-        src: '/products/microphone.webp',
+        src: '/products/p-mic.webp',
         alt: "Microphones",
         title: "Microphones",
         category: "Audio",
       },
       {
-        src: '/products/ups.webp',
+        src: '/products/p-ups.webp',
         alt: "UPS & Power Backup",
         title: "UPS & Power Backup",
         category: "Power",
       },
       {
-        src: '/products/mousepad.webp',
+        src: '/products/p-pad.webp',
         alt: "Mousepads",
         title: "Mousepads",
         category: "Accessory",
@@ -129,49 +129,49 @@ const productSections = [
     title: "Components",
     products: [
       {
-        src: '/products/processor.webp',
+        src: '/products/p-processor.webp',
         alt: "Processors (CPU)",
         title: "Processors (CPU)",
         category: "CPU",
       },
       {
-        src: '/products/graphic-card.webp',
+        src: '/products/p-graphic.webp',
         alt: "Graphic Cards",
         title: "Graphic Cards",
         category: "GPU",
       },
       {
-        src: '/products/ram.webp',
+        src: '/products/p-ram.webp',
         alt: "RAM (Memory)",
         title: "RAM (Memory)",
         category: "Memory",
       },
       {
-        src: '/products/motherboard.webp',
+        src: '/products/p-motherboard.webp',
         alt: "Motherboards",
         title: "Motherboards",
         category: "Motherboard",
       },
       {
-        src: '/products/psu.webp',
+        src: '/products/p-psu.webp',
         alt: "Power Supplies (PSU)",
         title: "Power Supplies (PSU)",
         category: "Power",
       },
       {
-        src: '/products/cpu-fan.webp',
+        src: '/products/p-cpu-fan.webp',
         alt: "CPU Coolers",
         title: "CPU Coolers",
         category: "Cooling",
       },
       {
-        src: '/products/cabinate.webp',
+        src: '/products/p-cabinate.webp',
         alt: "Cabinets & Cases",
         title: "Cabinets & Cases",
         category: "Case",
       },
       {
-        src: '/products/case-fan.webp',
+        src: '/products/p-case-fan.webp',
         alt: "Case Fans",
         title: "Case Fans",
         category: "Cooling",
@@ -182,49 +182,49 @@ const productSections = [
     title: "Storage & Drives",
     products: [
       {
-        src: '/products/storage.webp',
+        src: '/products/p-hdd.webp',
         alt: "Storage (SSD/HDD)",
         title: "Storage (SSD/HDD)",
         category: "Storage",
       },
       {
-        src: '/products/nvme.webp',
+        src: '/products/p-nvme.webp',
         alt: "NVMe Drives",
         title: "NVMe Drives",
         category: "Storage",
       },
       {
-        src: '/products/external-drive.webp',
+        src: '/products/p-ex-drive.webp',
         alt: "External Hard Drives",
         title: "External Hard Drives",
         category: "Storage",
       },
       {
-        src: '/products/pendrive.webp',
+        src: '/products/p-pendrive.webp',
         alt: "Pen Drives",
         title: "Pen Drives",
         category: "Storage",
       },
       {
-        src: '/products/memory-card.webp',
+        src: '/products/p-memory.webp',
         alt: "Memory Cards",
         title: "Memory Cards",
         category: "Storage",
       },
       {
-        src: '/products/optical-drive.webp',
+        src: '/products/p-optical-drive.webp',
         alt: "Optical Drives",
         title: "Optical Drives",
         category: "Storage",
       },
       {
-        src: '/products/raid-controller.webp',
+        src: '/products/p-raid.webp',
         alt: "RAID Controllers",
         title: "RAID Controllers",
         category: "Storage",
       },
       {
-        src: '/products/docking-station.webp',
+        src: '/products/p-docking-station.webp',
         alt: "Docking Stations",
         title: "Docking Stations",
         category: "Accessory",
@@ -235,49 +235,49 @@ const productSections = [
     title: "Displays & Graphics",
     products: [
       {
-        src: '/products/monitor.webp',
+        src: '/products/p-monitor.webp',
         alt: "Monitors",
         title: "Monitors",
         category: "Display",
       },
       {
-        src: '/products/projector.webp',
+        src: '/products/p-projector.webp',
         alt: "Projectors",
         title: "Projectors",
         category: "Display",
       },
       {
-        src: '/products/graphic-tablet.webp',
+        src: '/products/p-graphic-tablet.webp',
         alt: "Graphics Tablets",
         title: "Graphics Tablets",
         category: "Input",
       },
       {
-        src: '/products/vr-headset.webp',
+        src: '/products/p-vr-headset.webp',
         alt: "VR Headsets",
         title: "VR Headsets",
         category: "VR",
       },
       {
-        src: '/products/display-adaptor.webp',
+        src: '/products/p-display-adaptor.webp',
         alt: "Display Adapters",
         title: "Display Adapters",
         category: "Accessory",
       },
       {
-        src: '/products/screen-splitter.webp',
+        src: '/products/p-splitter.webp',
         alt: "Screen Splitters",
         title: "Screen Splitters",
         category: "Accessory",
       },
       {
-        src: '/products/monitor-mount.webp',
+        src: '/products/p-mount.webp',
         alt: "Monitor Mounts",
         title: "Monitor Mounts",
         category: "Accessory",
       },
       {
-        src: '/products/monitor-hoods.webp',
+        src: '/products/p-monitor-hoods.webp',
         alt: "Monitor Hoods",
         title: "Monitor Hoods",
         category: "Accessory",
@@ -288,37 +288,37 @@ const productSections = [
     title: "Networking",
     products: [
       {
-        src: '/products/router.webp',
+        src: '/products/p-router.webp',
         alt: "Routers",
         title: "Routers",
         category: "Networking",
       },
       {
-        src: '/products/network-switch.webp',
+        src: '/products/p-switch.webp',
         alt: "Network Switches",
         title: "Network Switches",
         category: "Networking",
       },
       {
-        src: '/products/lan-card.webp',
+        src: '/products/p-lan-card.webp',
         alt: "LAN Cards",
         title: "LAN Cards",
         category: "Networking",
       },
       {
-        src: '/products/wifi-adaptor.webp',
+        src: '/products/p-wifi.webp',
         alt: "Wi-Fi Adapters",
         title: "Wi-Fi Adapters",
         category: "Networking",
       },
       {
-        src: '/products/range-extender.webp',
+        src: '/products/p-range.webp',
         alt: "Range Extenders",
         title: "Range Extenders",
         category: "Networking",
       },
       {
-        src: '/products/wifi-cable.webp',
+        src: '/products/p-cable.webp',
         alt: "Network Cables",
         title: "Network Cables",
         category: "Networking",
@@ -330,7 +330,7 @@ const productSections = [
         category: "Storage",
       },
       {
-        src: '/products/firewall-device.webp',
+        src: '/products/p-firewall.webp',
         alt: "Firewalls",
         title: "Firewalls",
         category: "Security",
@@ -347,7 +347,7 @@ const productSections = [
         category: "Accessory",
       },
       {
-        src: '/products/connectors.webp',
+        src: '/products/p-connector.webp',
         alt: "Cables & Connectors",
         title: "Cables & Connectors",
         category: "Accessory",
@@ -359,31 +359,31 @@ const productSections = [
         category: "Maintenance",
       },
       {
-        src: '/products/laptop-bag.webp',
+        src: '/products/p-bag.webp',
         alt: "Laptop Bags",
         title: "Laptop Bags",
         category: "Carry",
       },
       {
-        src: '/products/laptop-stand.webp',
+        src: '/products/p-stand.webp',
         alt: "Stands & Holders",
         title: "Stands & Holders",
         category: "Accessory",
       },
       {
-        src: '/products/surge-protector.webp',
+        src: '/products/p-surge-protector.webp',
         alt: "Surge Protectors",
         title: "Surge Protectors",
         category: "Power",
       },
       {
-        src: '/products/thermal-paste.webp',
+        src: '/products/p-paste.webp',
         alt: "Thermal Paste",
         title: "Thermal Paste",
         category: "Maintenance",
       },
       {
-        src: '/products/label-printer.webp',
+        src: '/products/p-label-printer.webp',
         alt: "Label Printers",
         title: "Label Printers",
         category: "Office",
@@ -394,49 +394,49 @@ const productSections = [
     title: "Software & Services",
     products: [
       {
-        src: '/products/os.webp',
+        src: '/products/p-soft-os.webp',
         alt: "Operating Systems",
         title: "Operating Systems",
         category: "Software",
       },
       {
-        src: '/products/antivirus.webp',
+        src: '/products/p-soft-av.webp',
         alt: "Antivirus & Security",
         title: "Antivirus & Security",
         category: "Software",
       },
       {
-        src: '/products/office-suite.webp',
+        src: '/products/p-soft-office.webp',
         alt: "Office Suites",
         title: "Office Suites",
         category: "Software",
       },
       {
-        src: '/products/backup-software.webp',
+        src: '/products/p-soft-back.webp',
         alt: "Backup Solutions",
         title: "Backup Solutions",
         category: "Software",
       },
       {
-        src: '/products/graphic-software.webp',
+        src: '/products/p-soft-graphic.webp',
         alt: "Graphics & Design",
         title: "Graphics & Design",
         category: "Software",
       },
       {
-        src: '/products/accounting-software.webp',
+        src: '/products/p-soft-tally.webp',
         alt: "Accounting Software",
         title: "Accounting Software",
         category: "Software",
       },
       {
-        src: '/products/remote-tool.webp',
+        src: '/products/p-remote.webp',
         alt: "Remote Access Tools",
         title: "Remote Access Tools",
         category: "Software",
       },
       {
-        src: '/products/license-key.webp',
+        src: '/products/p-soft-key.webp',
         alt: "Software Licenses",
         title: "Software Licenses",
         category: "Software",
@@ -445,7 +445,6 @@ const productSections = [
   },
 ];
 
-// Create a flat array of all products for the hero carousel
 const allProductImages = productSections.flatMap(section =>
   section.products.map(product => ({
     ...product,
@@ -490,7 +489,7 @@ function ProductCard({ product }: { product: any }) {
   return (
     <AnimatePresence>
       <div
-        className="group relative  rounded-2xl border border-lime-700 bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 shadow-xl p-7 flex flex-col items-center text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 cursor-pointer overflow-hidden"
+        className="group relative  rounded-2xl border border-lime-700 bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950 shadow-xl p-7 flex flex-col items-center text-center hover:shadow-2xl  transition-all duration-300 cursor-pointer overflow-hidden"
       >
         {/* Subtle background accent */}
         <div
@@ -530,7 +529,7 @@ function ProductCard({ product }: { product: any }) {
   );
 }
 
-// Multi-carousel section: one carousel per product section
+
 function MultiProductCarousels({ sections }: { sections: any[] }) {
   return (
     <div className="space-y-12">
@@ -572,19 +571,72 @@ function MultiProductCarousels({ sections }: { sections: any[] }) {
 }
 
 export default function ProductsPage() {
-  // For hero, show all images in a single carousel (with category overlays)
-  const [heroIndex, setHeroIndex] = useState(0);
 
-  // For auto-slide
+  const heroImages = [
+    {
+      src: '/products/desktop-pc.png',
+      alt: "Desktop PCs",
+      category: "Computers",
+    },
+    {
+      src: '/products/gaming-pc.webp',
+      alt: "Gaming PCs",
+      category: "Gaming",
+    },
+    {
+      src: '/products/laptop.webp',
+      alt: "Laptops",
+      category: "Portable",
+    },
+    {
+      src: '/products/monitor.webp',
+      alt: "Monitors",
+      category: "Displays & Graphics",
+    },
+    {
+      src: '/products/keyboard.webp',
+      alt: "Keyboards",
+      category: "Peripherals",
+    },
+    {
+      src: '/products/headphone.webp',
+      alt: "Solid State Drives",
+      category: "Storage & Drives",
+    },
+    {
+      src: '/products/antivirus.webp',
+      alt: "Antivirus & Security",
+      category: "Software & Services",
+    },
+  ];
+
+  const [heroIndex, setHeroIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setHeroIndex((prev) => (prev + 1) % allProductImages.length);
+    setIsAnimating(true);
+    timeoutRef.current = setTimeout(() => {
+      setIsAnimating(false);
+      setTimeout(() => {
+        setHeroIndex((prev) => (prev + 1) % heroImages.length);
+      }, 100); 
     }, 3000);
-    return () => clearTimeout(timeout);
+
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+
   }, [heroIndex]);
 
-  return (
 
+  const handleDotClick = (i: number) => {
+    setIsAnimating(false);
+    setHeroIndex(i);
+  };
+
+  return (
     <>
       <Background />
       <main className="min-h-screen font-sans text-gray-900 ">
@@ -630,96 +682,55 @@ export default function ProductsPage() {
               </div>
             </div>
             {/* Hero carousel using all product images */}
-            {(() => {
-
-              const heroImages = [
-                {
-                  src: '/products/desktop-pc.png',
-                  alt: "Desktop PCs",
-                  category: "Computers",
-                },
-                {
-                  src: '/products/gaming-pc.webp',
-                  alt: "Gaming PCs",
-                  category: "Gaming",
-                },
-                {
-                  src: '/products/laptop.webp',
-                  alt: "Laptops",
-                  category: "Portable",
-                },
-                {
-                  src: '/products/monitor.webp',
-                  alt: "Monitors",
-                  category: "Displays & Graphics",
-                },
-                {
-                  src: '/products/keyboard.webp',
-                  alt: "Keyboards",
-                  category: "Peripherals",
-                },
-                {
-                  src: '/products/ssd.webp',
-                  alt: "Solid State Drives",
-                  category: "Storage & Drives",
-                },
-                {
-                  src: '/products/antivirus.webp',
-                  alt: "Antivirus & Security",
-                  category: "Software & Services",
-                },
-              ];
-              return (
-                <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-3xl border border-lime-400 bg-gradient-to-br from-zinc-900 via-zinc-700 to-zinc-950">
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-                    <span className="bg-gradient-to-r from-lime-700 to-lime-800 text-white px-4 py-1 rounded-full text-xs font-semibold shadow">
-                      Images of products and their categories
-                    </span>
+            <div className="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-3xl border border-lime-400 bg-gradient-to-br from-zinc-900 via-zinc-700 to-zinc-950">
+              <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
+                <span className="bg-gradient-to-r from-lime-700 to-lime-800 text-white px-4 py-1 rounded-full text-xs font-semibold shadow">
+                  Images of products and their categories
+                </span>
+              </div>
+              <AnimatePresence initial={false} mode="wait">
+                <motion.div
+                  key={heroIndex}
+                  initial={{ opacity: 0, scale: 0.98, x: 40 }}
+                  animate={{ opacity: 1, scale: 1, x: 0 }}
+                  exit={{ opacity: 0, scale: 0.98, x: -40 }}
+                  transition={{ duration: 0.7, ease: "easeInOut" }}
+                  className="absolute inset-0"
+                  style={{ pointerEvents: "auto" }}
+                >
+                  <Image
+                    src={heroImages[heroIndex].src}
+                    alt={heroImages[heroIndex].alt}
+                    fill
+                    priority={true}
+                    className="object-contain p-10"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    style={{
+                      filter: "brightness(1.2) drop-shadow(0 4px 65px #bef26488)",
+                      objectFit: "contain",
+                      pointerEvents: "none",
+                    }}
+                  />
+                  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-gradient-to-r from-lime-700 to-lime-800 text-white px-4 py-1 rounded-full text-xs font-medium shadow">
+                    {heroImages[heroIndex].category}
                   </div>
-                  {heroImages.map((img, i) => (
-                    <motion.div
-                      key={img.src + i}
-                      initial={{ opacity: 0, scale: 0.98 }}
-                      animate={{
-                        opacity: i === heroIndex ? 1 : 0,
-                        scale: i === heroIndex ? 1 : 0.98,
-                        zIndex: i === heroIndex ? 2 : 1,
-                      }}
-                      transition={{ duration: 0.7, ease: "easeInOut" }}
-                      className="absolute inset-0"
-                      style={{ pointerEvents: i === heroIndex ? "auto" : "none" }}
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt}
-                        fill
-                        priority={i === 0}
-                        className="object-contain p-10"
-                        sizes="(max-width: 768px) 100vw, 400px"
-                      />
-                      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-gradient-to-r from-lime-700 to-lime-800 text-white px-4 py-1 rounded-full text-xs font-medium shadow">
-                        {img.category}
-                      </div>
-                    </motion.div>
-                  ))}
-                  {/* Dots navigation */}
-                  <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
-                    {heroImages.map((_, i) => (
-                      <button
-                        key={i}
-                        className={`h-2 w-2 rounded-full transition-colors duration-200 ${i === heroIndex ? "bg-lime-400" : "bg-lime-700/60"
-                          }`}
-                        aria-label={`Show slide ${i + 1}`}
-                        onClick={() => setHeroIndex(i)}
-                      />
-                    ))}
-                  </div>
-                </div>
-              );
-            })()}
+                </motion.div>
+              </AnimatePresence>
+              {/* Dots navigation */}
+              <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-2">
+                {heroImages.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`h-2 w-2 rounded-full transition-colors duration-200 ${i === heroIndex ? "bg-lime-400" : "bg-lime-700/60"
+                      }`}
+                    aria-label={`Show slide ${i + 1}`}
+                    onClick={() => handleDotClick(i)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </section>
-
 
         <MultiProductCarousels sections={productSections} />
 
@@ -745,10 +756,11 @@ export default function ProductsPage() {
                   Latest Gaming Console
                 </h3>
                 <p className="mt-2 text-lg font-medium text-lime-100/90 drop-shadow">
-                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                  Top Gaming Console at <br /> BM Computers.
                 </p>
+
                 <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
-                  Shop Now
+                  Contact Now
                 </Button>
               </div>
 
@@ -771,13 +783,13 @@ export default function ProductsPage() {
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
               <div>
                 <h3 className="text-3xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
-                  Latest Gaming Console
+                  Drones &amp; Cameras
                 </h3>
                 <p className="mt-2 text-lg font-medium text-lime-100/90 drop-shadow">
-                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                  Shop the latest drones and cameras at BM Computers.
                 </p>
                 <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
-                  Shop Now
+                  Explore Now
                 </Button>
               </div>
 
@@ -804,16 +816,21 @@ export default function ProductsPage() {
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
               <div>
                 <h3 className="text-3xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
-                  Latest Gaming Console
+                  Buy Your Dream PC
                 </h3>
                 <p className="mt-2 text-lg font-medium text-lime-100/90 drop-shadow">
-                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                  Custom-built desktops for gaming, work, and creativity. Choose your specs or get expert advice for the perfect PC.
                 </p>
+                <ul className="mt-4 list-disc list-inside text-lime-100/90 text-base space-y-1">
+                  <li>Tailored to your performance needs</li>
+                  <li>Expert consultation available</li>
+                  <li>Premium components &amp; brands</li>
+                  <li>Fast build &amp; delivery</li>
+                </ul>
                 <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
-                  Shop Now
+                  Contact Now
                 </Button>
               </div>
-              {/* Optionally, you can keep a subtle overlay or gradient on the right for text readability */}
               <div className="relative h-64 w-full flex items-center justify-center">
                 <div className="absolute -z-10 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 rounded-full bg-gradient-radial from-lime-300/30 via-lime-200/20 to-transparent blur-2xl opacity-60 animate-float-mid" />
 
@@ -858,13 +875,13 @@ export default function ProductsPage() {
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
               <div>
                 <h3 className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
-                  Latest Gaming Console
+                  Mechanical Keyboards
                 </h3>
                 <p className="mt-2 text-md font-medium text-lime-100/90 drop-shadow">
-                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                  Precision and speed in every keystroke.
                 </p>
                 <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
-                  Shop Now
+                  Contact Now
                 </Button>
               </div>
 
@@ -889,13 +906,13 @@ export default function ProductsPage() {
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
               <div>
                 <h3 className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
-                  Latest Gaming Console
+                  Premium Gaming Mice
                 </h3>
                 <p className="mt-2 text-md font-medium text-lime-100/90 drop-shadow">
-                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                  Precision and comfort for gamers.
                 </p>
                 <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
-                  Shop Now
+                  Contact Now
                 </Button>
               </div>
 
@@ -920,13 +937,13 @@ export default function ProductsPage() {
             <div className="relative z-10 grid items-center gap-8 md:grid-cols-2 px-8 py-10">
               <div>
                 <h3 className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-200 to-lime-300 bg-clip-text text-transparent drop-shadow-lg">
-                  Latest Gaming Console
+                  Latest Graphic Cards
                 </h3>
                 <p className="mt-2 text-md font-medium text-lime-100/90 drop-shadow">
-                  ASUS 620-QF / 825H 512FFL 1.2&quot;
+                  Top graphic cards at BM Computers.
                 </p>
                 <Button className="mt-8 rounded-2xl bg-gradient-to-r from-lime-500 via-lime-400 to-lime-300 text-black shadow-lg hover:from-lime-400 hover:to-lime-200 transition-all duration-200">
-                  Shop Now
+                  Contact Now
                 </Button>
               </div>
 

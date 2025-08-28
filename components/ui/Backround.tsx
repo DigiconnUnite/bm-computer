@@ -19,7 +19,7 @@ const Background: React.FC<{
         containerclassName
       )}
       style={{
-        // Overlay a subtle emerald/cyan gradient and a soft texture
+        // Overlay a subtle emerald/lime gradient and a soft texture
 
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -34,15 +34,15 @@ const Background: React.FC<{
       {/* Futuristic animated neon grid */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0">
-          {/* Lime radial gradient with visible dotted overlay using Tailwind */}
+
           <div
             className={cn(
               "absolute inset-0 -z-10 h-full w-full items-center px-5 py-24",
-              // Dotted background using Tailwind's [background-image] and [background-size]
-              "bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#a3e635_100%)]", // lime-400
-              "before:content-[''] before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(#ffffff33_1px,transparent_1px)] before:bg-[size:20px_20px] before:bg-repeat"
+              "bg-[radial-gradient(125%_125%_at_50%_10%,#000_40%,#a3e635_130%)]",
+              "before:content-[''] before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(#a3e63533_1px,transparent_1px)] before:bg-[size:20px_20px] before:bg-repeat"
             )}
-          ></div>
+          >
+          </div>
         </div>
         <img
           src="/neon-grid.png"

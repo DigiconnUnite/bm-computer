@@ -12,7 +12,7 @@ export default function FeatureSection() {
       tag: "GET UP TO 35% OFF",
       title: "High-Performance Desktop PC",
       link: "#",
-      image: "/pc-1.png",
+      image: "/pc-1.webp",
     },
     {
       tag: "HURRY UP!",
