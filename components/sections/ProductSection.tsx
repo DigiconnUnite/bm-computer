@@ -20,7 +20,7 @@ const productSections = [
       },
       {
         image: '/products/p-laptop.webp',
-        name: "Laptops",  
+        name: "Laptops",
         description: "Portable laptops for work or play.",
       },
       {
@@ -368,7 +368,7 @@ const productSections = [
   },
 ];
 
-const SECTIONS_PER_PAGE = 1;  
+const SECTIONS_PER_PAGE = 1;
 
 export default function ProductSection() {
   const [sectionPage, setSectionPage] = useState(0);
@@ -394,24 +394,16 @@ export default function ProductSection() {
     >
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+        <h2
           className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg mb-4 text-center "
         >
           Our <span className="text-lime-300">Products</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          viewport={{ once: true }}
+        </h2>
+        <p
           className="max-w-2xl mx-auto text-lg md:text-xl text-neutral-200 mb-12 text-center"
         >
           Explore the latest and greatest in computer hardware, peripherals, networking, software, and more. Everything you need for work, play, and performance—under one roof.
-        </motion.p>
+        </p>
 
         {/* Tabs for section pagination */}
         <div className="flex justify-center mb-8 gap-2">
@@ -419,11 +411,10 @@ export default function ProductSection() {
             <button
               key={idx}
               onClick={() => handleTab(idx)}
-              className={`w-3 h-3 rounded-full border-2 border-lime-400 transition-all duration-200 ${
-                sectionPage === idx
+              className={`w-3 h-3 rounded-full border-2 border-lime-400 transition-all duration-200 ${sectionPage === idx
                 ? 'bg-lime-400 border-lime-400 scale-125 shadow'
                 : 'bg-white hover:bg-lime-100'
-              }`}
+                }`}
               aria-label={`Go to section page ${idx + 1}`}
             />
           ))}

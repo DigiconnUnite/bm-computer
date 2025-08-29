@@ -73,32 +73,22 @@ export default function ContactSection() {
       className="relative py-20 overflow-hidden "
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+        <h2
           className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg mb-4 text-center font-display"
         >
           Quick <span className="from-lime-400 to-lime-600 bg-gradient-to-r bg-clip-text text-transparent">Contact</span>
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          viewport={{ once: true }}
+        </h2>
+        <p
+
           className="max-w-2xl mx-auto text-lg md:text-xl text-lime-100/90 mb-12 text-center"
         >
           Need a custom PC, laptop, or have a quick question? Reach out and our experts will get back to you fast!
-        </motion.p>
+        </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Contact Information */}
           <div className=" flex flex-col gap-3 ">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+            <div
               className="bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-8 h-fit"
             >
               <h2 className="text-2xl font-bold text-lime-300 mb-6">Get in Touch</h2>
@@ -196,11 +186,8 @@ export default function ContactSection() {
                   </a>
                 </div>
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7, delay: 0.2 }}
+            </div>
+            <div
               className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-4 h-auto"
             >
               {/* Column 1: What We Provide */}
@@ -237,25 +224,23 @@ export default function ContactSection() {
                   <li>Customer Satisfaction Guaranteed</li>
                 </ul>
               </div>
-            </motion.div>
+            </div>
 
 
           </div>
 
 
           {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
+          <div
+
             className="bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-8"
           >
             <h2 className="text-2xl font-bold text-lime-300 mb-6">Send us a Message</h2>
 
             {isSubmitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+              <div
+
+
                 className="bg-lime-400/10 border border-lime-400/30 rounded-xl p-6 text-center"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 text-lime-400 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -263,7 +248,7 @@ export default function ContactSection() {
                 </svg>
                 <h3 className="text-xl font-bold text-lime-300 mb-2">Message Sent Successfully!</h3>
                 <p className="text-lime-100/80">Thank you for contacting us. We'll get back to you within 24 hours.</p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {error && (
@@ -397,7 +382,7 @@ export default function ContactSection() {
                   </button>
                 </form>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

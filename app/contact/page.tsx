@@ -91,108 +91,148 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
                     {/* Contact Information */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.7, delay: 0.2 }}
-                        className="bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-8 h-fit"
-                    >
-                        <h2 className="text-2xl font-bold text-lime-300 mb-6">Get in Touch</h2>
+                    <div className=" flex flex-col gap-3 ">
+                        <div
+                            className="bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-8 h-fit"
+                        >
+                            <h2 className="text-2xl font-bold text-lime-300 mb-6">Get in Touch</h2>
 
-                        <div className="space-y-5">
-                            <div className="flex items-start">
-                                <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                    </svg>
+                            <div className="space-y-5">
+                                <div className="flex items-start">
+                                    <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lime-200">Phone</h3>
+                                        <p className="text-lime-100/80">+91 98370 12345</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="font-semibold text-lime-200">Phone</h3>
-                                    <p className="text-lime-100/80">+91 98370 12345</p>
+
+                                <div className="flex items-start">
+                                    <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lime-200">Email</h3>
+                                        <p className="text-lime-100/80">bmcomputers.agra@gmail.com</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start">
+                                    <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+
+                                        <p className="text-lime-100/80">BM Computers, Shop No. 12, Computer Market, Sanjay Place, Agra, Uttar Pradesh 282002, India</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start">
+                                    <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-lime-200">Hours</h3>
+                                        <p className="text-lime-100/80">Mon-Sat: 10am - 8pm</p>
+                                        <p className="text-lime-100/80">Sunday: Closed</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="flex items-start">
-                                <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lime-200">Email</h3>
-                                    <p className="text-lime-100/80">bmcomputers.agra@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start">
-                                <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lime-200">Address</h3>
-                                    <p className="text-lime-100/80">BM Computers, Shop No. 12, Computer Market, Sanjay Place, Agra, Uttar Pradesh 282002, India</p>
-                                </div>
-                            </div>
-
-                            <div className="flex items-start">
-                                <div className="bg-lime-400/10 p-3 rounded-lg mr-4">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-lime-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lime-200">Hours</h3>
-                                    <p className="text-lime-100/80">Mon-Sat: 10am - 8pm</p>
-                                    <p className="text-lime-100/80">Sunday: Closed</p>
+                            <div className="mt-8 pt-6 border-t border-lime-400/20">
+                                <h3 className="font-semibold text-lime-200 mb-3">Follow Us</h3>
+                                <div className="flex space-x-4">
+                                    <a
+                                        href="https://www.facebook.com/bmcomputersagra"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
+                                        aria-label="Facebook"
+                                    >
+                                        <FaFacebook className="w-5 h-5 text-lime-400" />
+                                    </a>
+                                    <a
+                                        href="https://twitter.com/bmcomputersagra"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
+                                        aria-label="X (Twitter)"
+                                    >
+                                        <FaXTwitter className="w-5 h-5 text-lime-400" />
+                                    </a>
+                                    <a
+                                        href="https://www.instagram.com/bmcomputersagra"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
+                                        aria-label="Instagram"
+                                    >
+                                        <FaInstagram className="w-5 h-5 text-lime-400" />
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/company/bmcomputersagra"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
+                                        aria-label="LinkedIn"
+                                    >
+                                        <FaYoutube className="w-5 h-5 text-lime-400" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
-
-                        <div className="mt-8 pt-6 border-t border-lime-400/20">
-                            <h3 className="font-semibold text-lime-200 mb-3">Follow Us</h3>
-                            <div className="flex space-x-4">
-                                <a
-                                    href="https://www.facebook.com/bmcomputersagra"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
-                                    aria-label="Facebook"
-                                >
-                                    <FaFacebook className="w-5 h-5 text-lime-400" />
-                                </a>
-                                <a
-                                    href="https://twitter.com/bmcomputersagra"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
-                                    aria-label="X (Twitter)"
-                                >
-                                    <FaXTwitter className="w-5 h-5 text-lime-400" />
-                                </a>
-                                <a
-                                    href="https://www.instagram.com/bmcomputersagra"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
-                                    aria-label="Instagram"
-                                >
-                                    <FaInstagram className="w-5 h-5 text-lime-400" />
-                                </a>
-                                <a
-                                    href="https://www.linkedin.com/company/bmcomputersagra"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-lime-400/10 hover:bg-lime-400/20 p-2 rounded-lg transition"
-                                    aria-label="LinkedIn"
-                                >
-                                    <FaYoutube className="w-5 h-5 text-lime-400" />
-                                </a>
+                        <div
+                            className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-4 h-auto"
+                        >
+                            {/* Column 1: What We Provide */}
+                            <div className="flex flex-col items-center text-center p-2">
+                                <h4 className="text-lime-300 font-semibold mb-2 text-sm">What We Provide</h4>
+                                <ul className="text-lime-100/80 text-xs space-y-1">
+                                    <li>Custom Built PCs & Workstations</li>
+                                    <li>Laptops & Accessories</li>
+                                    <li>Computer Upgrades</li>
+                                    <li>Networking Solutions</li>
+                                    <li>Genuine Software & Licensing</li>
+                                </ul>
+                            </div>
+                            {/* Column 2: Why BM Computers? */}
+                            <div className="flex flex-col items-center text-center border-l border-r border-lime-400/10 p-2">
+                                <h4 className="text-lime-300 font-semibold mb-2 text-sm">Why BM Computers?</h4>
+                                <ul className="text-lime-100/80 text-xs space-y-1">
+                                    <li>Agra's Best Computer Seller</li>
+                                    <li>Trusted Since 2001</li>
+                                    <li>Top Brands & Latest Tech</li>
+                                    <li>Competitive Pricing</li>
+                                    <li>After-Sales Support</li>
+                                    <li>Thousands of Happy Customers</li>
+                                </ul>
+                            </div>
+                            {/* Column 3: Our Commitment */}
+                            <div className="flex flex-col items-center text-center p-2">
+                                <h4 className="text-lime-300 font-semibold mb-2 text-sm">Our Commitment</h4>
+                                <ul className="text-lime-100/80 text-xs  space-y-1">
+                                    <li>Honest Advice</li>
+                                    <li>Fast Response & Service</li>
+                                    <li>Your Data & Privacy Protected</li>
+                                    <li>100% Genuine Products</li>
+                                    <li>Customer Satisfaction Guaranteed</li>
+                                </ul>
                             </div>
                         </div>
-                    </motion.div>
+
+
+                    </div>
+
 
                     {/* Contact Form */}
                     <motion.div

@@ -148,48 +148,35 @@ export default function TermsAndConditionsPage() {
                     className="pointer-events-none absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-lime-400/30 via-lime-500/20 to-transparent opacity-30 blur-3xl animate-float-slow z-0"
                     aria-hidden="true"
                 />
-                <motion.h1
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
+                <h1
                     className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg mb-6 text-center font-display"
                 >
                     Terms and Conditions
-                </motion.h1>
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.1 }}
+                </h1>
+                <p
+
                     className="text-lg md:text-xl text-lime-100/90 mb-10 text-center max-w-2xl mx-auto"
                 >
                     Welcome to BM Computers. These terms and conditions outline the rules and regulations for the use of our website and services.
-                </motion.p>
+                </p>
 
                 <div className="grid gap-8 md:grid-cols-2">
                     {termsSections.map((section, idx) => (
-                        <motion.div
-                            key={section.title}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            viewport={{ once: true }}
+                        <div
                             className="bg-gradient-to-br from-zinc-900/80 via-zinc-800/80 to-zinc-950/80 border border-lime-400/20 rounded-2xl shadow-lg backdrop-blur-sm p-6 flex flex-col"
                         >
                             <h2 className="text-2xl font-bold text-lime-300 mb-3">{section.title}</h2>
                             <div className="text-lime-100/90">{section.content}</div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    viewport={{ once: true }}
+                <div
+
                     className="mt-12 text-center text-lime-200/80 italic"
                 >
                     Last updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </motion.div>
+                </div>
             </section>
         </main>
     );

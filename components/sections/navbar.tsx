@@ -100,7 +100,7 @@ export default function Navbar() {
                   </defs>
                 </svg>
               </span>
-              <span className="text-xl font-bold text-lime-700 tracking-tight">BM COMPUTER</span>
+              <span className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight">BM COMPUTERS</span>
             </div>
             {/* Desktop Nav - Centered */}
             <div className="hidden md:flex flex-1 justify-center">

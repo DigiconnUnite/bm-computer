@@ -60,24 +60,16 @@ export function WhyChooseSection() {
   return (
     <section className="relative py-20 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 relative z-10">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
+        <h2
           className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg mb-4 text-center font-display"
         >
           Why Choose <span className="from-lime-400 to-lime-600 bg-gradient-to-r bg-clip-text text-transparent">BM Computers</span>?
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          viewport={{ once: true }}
+        </h2>
+        <p
           className="max-w-2xl mx-auto text-lg md:text-xl text-lime-100/90 mb-12 text-center"
         >
           Powering Agra’s future with <span className="font-semibold text-lime-300">innovation</span>, <span className="font-semibold text-lime-300">trust</span>, and <span className="font-semibold text-lime-300">unmatched service</span>. Discover what sets us apart for all your computer solutions.
-        </motion.p>
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, idx) => (
