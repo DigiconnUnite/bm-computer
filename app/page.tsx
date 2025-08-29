@@ -1,6 +1,5 @@
 import HeroSection from '@/components/sections/HeroSection';
 import AboutSection from '@/components/sections/AboutSection';
-import ShowcaseSection from '@/components/sections/ShowcaseSection';
 import { WhyChooseSection } from '@/components/sections/WhyChooseSection';
 import ContactSection from '@/components/sections/ContactSection';
 import FeatureSection from '@/components/sections/freature-section';
