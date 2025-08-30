@@ -8,7 +8,7 @@ type ContactPayload = {
   subject: string;
   service?: string;
   budget?: string;
-  message: string;
+  message: string; 
   computerType?: string;
   urgency?: string;
 };

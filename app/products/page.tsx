@@ -574,39 +574,52 @@ export default function ProductsPage() {
 
   const heroImages = [
     {
-      src: '/products/desktop-pc.png',
+      src: '/products/p-normal-pc.webp',
       alt: "Desktop PCs",
+      title: "Desktop PCs",
       category: "Computers",
     },
     {
-      src: '/products/gaming-pc.webp',
+      src: '/products/p-gaming-pc.webp',
       alt: "Gaming PCs",
+      title: "Gaming PCs",
       category: "Gaming",
     },
     {
-      src: '/products/laptop.webp',
+      src: '/products/p-laptop.webp',
       alt: "Laptops",
+      title: "Laptops",
       category: "Portable",
     },
     {
-      src: '/products/monitor.webp',
-      alt: "Monitors",
-      category: "Displays & Graphics",
+      src: '/products/p-mini-pc.webp',
+      alt: "Mini PCs",
+      title: "Mini PCs",
+      category: "Compact",
     },
     {
-      src: '/products/keyboard.webp',
-      alt: "Keyboards",
-      category: "Peripherals",
+      src: '/products/p-workstation-pc.webp',
+      alt: "Workstations",
+      title: "Workstations",
+      category: "Professional",
     },
     {
-      src: '/products/headphone.webp',
-      alt: "Solid State Drives",
-      category: "Storage & Drives",
+      src: '/products/p-all-in-one.webp',
+      alt: "All-in-One PCs",
+      title: "All-in-One PCs",
+      category: "All-in-One",
     },
     {
-      src: '/products/antivirus.webp',
-      alt: "Antivirus & Security",
-      category: "Software & Services",
+      src: '/products/p-thin-pc.webp',
+      alt: "Thin Clients",
+      title: "Thin Clients",
+      category: "Business",
+    },
+    {
+      src: '/products/p-borebone.webp',
+      alt: "Barebone PCs",
+      title: "Barebone PCs",
+      category: "DIY",
     },
   ];
 
@@ -646,26 +659,18 @@ export default function ProductsPage() {
           <div className="relative grid items-center gap-10 md:grid-cols-2">
             <div className="space-y-6">
               <AnimatePresence>
-                <motion.span
-                  initial={{ opacity: 0, y: 8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: 0.6 }}
+                <span
                   className="inline-flex items-center rounded-full border border-lime-400 bg-gradient-to-r from-lime-700 to-lime-800 px-3 py-1 text-xs font-medium text-white"
                 >
                   BM COMPUTES
-                </motion.span>
+                </span>
               </AnimatePresence>
               <AnimatePresence>
-                <motion.h1
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ delay: 0.1, duration: 0.6 }}
+                <h1
                   className="text-5xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg"
                 >
-                  Everything Your Computer Needs, Under One Roof
-                </motion.h1>
+                  All the Computer Gear You Want, All in One Place - BM Computers
+                </h1>
               </AnimatePresence>
               <p className="max-w-lg text-lime-200">
                 Explore premium peripherals, GPUs, and pro‑grade gear in a clean, modern light UI with vibrant lime accents.

@@ -51,47 +51,57 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Top Ribbon for contact info */}
-      <div className="w-full fixed top-0 left-0 z-[60] bg-gradient-to-tr from-lime-900 to-lime-950  border-b  border-b-lime-400  text-white text-sm mb-6 py-1 px-8 flex items-center justify-between gap-4">
+      {/* Top Ribbon for contact info - Responsive */}
+      <div className="w-full fixed top-0 left-0 z-[60] bg-gradient-to-tr from-lime-900 to-lime-950 border-b border-b-lime-400 text-white text-xs sm:text-sm mb-6 py-1 px-2 sm:px-4 md:px-8 flex flex-col sm:flex-row items-center sm:justify-between gap-1 sm:gap-4">
         {/* Address Section - Left Side */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 w-full sm:w-auto justify-center sm:justify-start">
           <span className="inline-block mr-1" aria-label="Address">
             <MapPin className="w-4 h-4 text-white" />
           </span>
-          <span>
+          <span className="truncate max-w-[90vw] sm:max-w-none text-center sm:text-left">
             Computer Market, Sanjay Place, Agra
           </span>
         </div>
         {/* Contact Info - Right Side */}
-        <div className="flex items-center gap-4">
-          <span className="flex items-end gap-1">
+        <div className="flex flex-row items-center gap-1 xs:gap-2 sm:gap-4 w-full sm:w-auto justify-center sm:justify-end mt-1 sm:mt-0">
+          <span className="flex items-center gap-1">
             <span className="inline-block mr-1">
               <Mail className="w-4 h-4 text-white" />
             </span>
-            <a href={`mailto:${CONTACT_EMAIL}`} className="hover:underline text-white">{CONTACT_EMAIL}</a>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              className="hover:underline text-white break-all"
+              style={{ wordBreak: "break-all" }}
+            >
+              {CONTACT_EMAIL}
+            </a>
           </span>
-          <span className="hidden sm:inline-block">|</span>
+          <span className="inline-block text-white">|</span>
           <span className="flex items-center gap-1">
             <span className="inline-block mr-1">
               <Phone className="w-4 h-4 text-white" />
             </span>
-            <a href={`tel:${CONTACT_PHONE.replace(/[^+\d]/g, "")}`} className="hover:underline text-white">{CONTACT_PHONE}</a>
+            <a
+              href={`tel:${CONTACT_PHONE.replace(/[^+\d]/g, "")}`}
+              className="hover:underline text-white"
+            >
+              {CONTACT_PHONE}
+            </a>
           </span>
         </div>
       </div>
-          
-      <nav
-        className={`w-full fixed top-6 py-1 left-0 z-50 shadow-md transition-colors  border-b  border-b-lime-400 duration-300 bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950`}
-      >
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="flex items-center justify-between h-16">
+      <nav
+        className={`w-full fixed top-[2.25rem] sm:top-6 py-1 left-0 z-50 shadow-md transition-colors border-b border-b-lime-400 duration-300 bg-gradient-to-br from-lime-950 via-neutral-900 to-lime-950`}
+      >
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8 relative">
+          <div className="flex items-center justify-between h-14 sm:h-16">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <span className=" w-10 h-10 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg mr-2">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg mr-2">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
                   <circle cx="16" cy="16" r="16" fill="url(#paint0_linear)" />
-                  <text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="16" fontWeight="bold" dy=".3em" fontFamily="Inter, sans-serif">BM</text>
+                  <text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="13" fontWeight="bold" dy=".3em" fontFamily="Inter, sans-serif">BM</text>
                   <defs>
                     <linearGradient id="paint0_linear" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
                       <stop stopColor="#65a30d" />
@@ -100,18 +110,20 @@ export default function Navbar() {
                   </defs>
                 </svg>
               </span>
-              <span className="text-xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight">BM COMPUTERS</span>
+              <span className="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-white via-lime-300 to-lime-400 bg-clip-text text-transparent drop-shadow-lg tracking-tight whitespace-nowrap">
+                BM COMPUTERS
+              </span>
             </div>
             {/* Desktop Nav - Centered */}
             <div className="hidden md:flex flex-1 justify-center">
-              <div className="flex items-center space-x-8">
+              <div className="flex items-center space-x-4 sm:space-x-8">
                 {navLinks.map((link) => (
                   <a
                     key={link.name}
                     href={link.href}
                     className={`${
                       isActive(link.href)
-                      ? "bg-lime-50 rounded-full  border border-lime-600 text-lime-600 font-bold"
+                      ? "bg-lime-50 rounded-full border border-lime-600 text-lime-600 font-bold"
                       : "text-gray-100 bg-lime-950 rounded-full border border-lime-400/30 hover:text-lime-300"
                       } px-3 py-1 rounded transition font-medium`}
                   >
@@ -121,10 +133,10 @@ export default function Navbar() {
               </div>
             </div>
             {/* Contact Button at end */}
-            <div className="hidden md:flex items-center ml-4 group">
+            <div className="hidden md:flex items-center ml-2 sm:ml-4 group">
               <a
                 href="/contact"
-                className={`px-10 py-2 rounded-full bg-gradient-to-tr from-lime-800 to-lime-950 border border-lime-400/30 text-white font-semibold transition shadow
+                className={`px-6 sm:px-10 py-2 rounded-full bg-gradient-to-tr from-lime-800 to-lime-950 border border-lime-400/30 text-white font-semibold transition shadow
                   ${isActive("/contact") ? "ring-2 ring-lime-400" : ""}
                   group-hover:bg-gradient-to-tr group-hover:from-lime-600 group-hover:to-lime-600  group-hover:shadow-lg group-hover:scale-105
                 `}
@@ -170,7 +182,7 @@ export default function Navbar() {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-200 ${
+        className={`fixed top-0 left-0 h-full w-64 max-w-full bg-white shadow-lg z-50 transform transition-transform duration-200 ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -191,11 +203,11 @@ export default function Navbar() {
             {CONTACT_EMAIL}
           </a>
         </div>
-        <div className="flex items-center justify-between px-6 h-16 border-b">
-          <span className="inline-block w-8 h-8 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg mr-2">
-            <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
+        <div className="flex items-center justify-between px-4 sm:px-6 h-14 sm:h-16 border-b">
+          <span className="inline-block w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-lime-500 to-lime-400 flex items-center justify-center shadow-lg mr-2">
+            <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
               <circle cx="16" cy="16" r="16" fill="url(#paint0_linear_sidebar)" />
-              <text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold" dy=".3em" fontFamily="Inter, sans-serif">BM</text>
+              <text x="50%" y="55%" textAnchor="middle" fill="white" fontSize="9" fontWeight="bold" dy=".3em" fontFamily="Inter, sans-serif">BM</text>
               <defs>
                 <linearGradient id="paint0_linear_sidebar" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
                   <stop stopColor="#65a30d" />
@@ -204,7 +216,7 @@ export default function Navbar() {
               </defs>
             </svg>
           </span>
-          <span className="text-xl font-bold text-lime-700">BM COMPUTER</span>
+          <span className="text-lg sm:text-xl font-bold text-lime-700 whitespace-nowrap">BM COMPUTER</span>
           <button
             onClick={() => setSidebarOpen(false)}
             className="text-gray-700 hover:text-lime-700 focus:outline-none"
@@ -226,7 +238,7 @@ export default function Navbar() {
             </svg>
           </button>
         </div>
-        <nav className="flex flex-col mt-4 space-y-2 px-6">
+        <nav className="flex flex-col mt-4 space-y-2 px-4 sm:px-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -253,7 +265,7 @@ export default function Navbar() {
         </nav>
       </aside>
       {/* Spacer for fixed navbar and ribbon */}
-      <div className="h-[4.5rem] md:h-20"></div>
+      <div className="h-[3.5rem] xs:h-[4.5rem] md:h-20"></div>
     </>
   );
 }

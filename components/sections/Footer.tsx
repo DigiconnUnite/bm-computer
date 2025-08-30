@@ -31,7 +31,7 @@ export default function Footer() {
       title: 'Quick Links',
       links: [
         { name: 'About Us', href: '/about' },
-        { name: 'Products', href: '/product' },
+        { name: 'Products', href: '/products' }, // Fixed: '/product' -> '/products'
         { name: 'Contact', href: '/contact' },
       ],
     },
@@ -41,11 +41,11 @@ export default function Footer() {
         {
           name: (
             <span className="flex items-start gap-2">
-              <MapPin className="w-8 h-8 text-lime-400 mt-0.5 flex-shrink-0" />
-              <span>Computers Market, Sanjay Palace, Agra</span>
+              <MapPin className="w-4 h-4 text-lime-400 mt-0.5 flex-shrink-0" />
+              <span>Computer Market, Sanjay Place, Agra</span>
             </span>
           ),
-          href: 'https://maps.google.com/?q=123+Tech+Street,+Silicon+Valley,+CA+94000',
+          href: 'https://maps.google.com/?q=Computer+Market,+Sanjay+Place,+Agra', // Fixed: correct address
         },
         {
           name: (
@@ -70,11 +70,11 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: Facebook, href: 'https://facebook.com/bmcomputersagra', label: 'Facebook' },
+    { icon: Twitter, href: 'https://twitter.com/bmcomputersagra', label: 'Twitter' },
+    { icon: Instagram, href: 'https://instagram.com/bmcomputersagra', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://linkedin.com/company/bmcomputersagra', label: 'LinkedIn' },
+    { icon: Youtube, href: 'https://youtube.com/@bmcomputersagra', label: 'YouTube' },
   ];
 
   return (
@@ -191,9 +191,9 @@ export default function Footer() {
           </div>
 
           <div className="text-sm font-semibold text-zinc-400">
-            <a href="#" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Privacy Policy</a>
+            <a href="/privacy-policy" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Privacy Policy</a>
             <span className="mx-1 text-lime-700">|</span>
-            <a href="#" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Terms of Service</a>
+            <a href="/terms-of-service" className="hover:underline hover:text-lime-400 transition-colors duration-300 mx-1">Terms of Service</a>
           </div>
         </div>
       </div>
